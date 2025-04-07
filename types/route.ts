@@ -7,3 +7,9 @@ export interface AnimationContainerProps {
   customClassName?: string;
   customDelay?: number;
 }
+
+export interface TimelineEventProps {
+  active?: boolean;
+  children: React.ReactNode;
+  last?: boolean;
+}

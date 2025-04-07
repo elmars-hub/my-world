@@ -2,6 +2,9 @@ import React from "react";
 import SectionContainer from "../utils/SectionAnimation";
 import AnimationContainer from "../utils/AnimationContainer";
 import Hero from "../content/Hero";
+import About from "../content/About";
+import CurrentTimeLineExp from "../content/CurrentEx";
+import SkillSection from "../section/SkillSection";
 
 const HomeSection = () => {
   return (
@@ -17,6 +20,18 @@ const HomeSection = () => {
         </AnimationContainer>
         <Hero />
       </div>
+
+      <AnimationContainer customClassName="w-full mt-16">
+        <About />
+      </AnimationContainer>
+
+      <AnimationContainer customClassName="w-full mt-16">
+        <CurrentTimeLineExp />
+      </AnimationContainer>
+
+      <AnimationContainer customClassName="w-full mt-16">
+        <SkillSection />
+      </AnimationContainer>
     </SectionContainer>
   );
 };

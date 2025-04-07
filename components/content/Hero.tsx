@@ -18,7 +18,7 @@ const Hero = () => {
           </span>
         </p>
         <h1 className="font-bold text-3xl lg:text-5xl text-center lg:text-start tracking-tight mb-3 mx-auto lg:mx-0 text-gray-900 dark:text-white">
-          Martin {/* Dynamic author name */}
+          Martin Ifeanyi
         </h1>
 
         <h2 className="flex items-center gap-2 text-lg lg:text-xl text-gray-700 dark:text-gray-400 mb-8 mx-auto lg:mx-0">
