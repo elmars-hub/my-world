@@ -1,7 +1,6 @@
+import HomeSection from "@/components/section/HomeSection";
 import React from "react";
 
-const HomePage = () => {
-  return <div>HomePage</div>;
-};
+const HomePage = () => <HomeSection />;
 
 export default HomePage;

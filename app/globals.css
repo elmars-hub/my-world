@@ -134,3 +134,21 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--muted-foreground);
 }
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Moves up by 5px */
+  }
+  100% {
+    transform: translateY(0); /* Returns to original position */
+  }
+}
+
+/* Apply jump effect on focus and hover */
+.focus-jump:focus,
+.focus-jump:hover {
+  animation: jump 0.3s ease-out;
+}

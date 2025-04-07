@@ -4,6 +4,8 @@ import React from "react";
 import HeaderAnimation from "../utils/HeaderAnimation";
 import Link from "next/link";
 import ThemeToggle from "../utils/ThemeToggle";
+import MobileNav from "../utils/MobileNav";
+import NavItem from "../NavItem";
 
 const Header = () => {
   return (
@@ -24,7 +26,9 @@ const Header = () => {
 
         {/*  */}
         <div className="ml-[-0.80rem] flex items-center gap-4">
+          <NavItem />
           <ThemeToggle />
+          <MobileNav />
         </div>
       </nav>
     </HeaderAnimation>
