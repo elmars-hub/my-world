@@ -48,11 +48,11 @@ const Hero = () => {
       <AnimationContainer customClassName="w-[150px] sm:w-[250px] relative mb-6 lg:mb-0">
         <Image
           alt=""
-          src=""
+          src="/profile.png"
           width={250}
           height={250}
           priority
-          className="rounded-[12px] filter grayscale hover:grayscale-0 transition ease bg-background/30 dark:bg-background/30"
+          className="rounded-[12px] filter  transition ease bg-background/30 dark:bg-background/30"
         />
       </AnimationContainer>
     </div>
