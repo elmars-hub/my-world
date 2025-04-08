@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/Provider";
 import Footer from "@/components/ui/Footer";
 import BackToTopButton from "@/components/ui/BackToTop";
 import ProgressBar from "@/components/ui/ProgressBar";
+import { personalInfo } from "@/config/personal";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -60,6 +61,42 @@ export const metadata: Metadata = {
     title: "Martin Ifeanyi | Developer Extraordinaire",
     description:
       "Welcome to my digital hub! Explore my projects, journey, and passion for turning ideas into reality with code.",
+    url: "https://martinifeanyi.vercel.app/",
+    siteName: "Martin Ifeanyi",
+    locale: "en_US",
+    type: "profile",
+    firstName: "Martin",
+    lastName: "Ifeanyi",
+    username: personalInfo.userName,
+    gender: "male",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Martin Ifeanyi | Developer Extraordinaire",
+    description: "Frontend Developer crafting engaging web experiences",
+    creator: "@0xx_eth",
+    images: "/opengraph-image.webp",
+  },
+  other: {
+    "schema:Person": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: personalInfo.name,
+      givenName: "Martin",
+      familyName: "Ifeanyi",
+      alternateName: personalInfo.userName,
+      description: personalInfo.bio,
+      jobTitle: personalInfo.role,
+      url: "https://martinifeanyi.vercel.app/",
+      sameAs: [
+        personalInfo.socials.github,
+        personalInfo.socials.linkedin,
+        personalInfo.socials.twitter,
+        personalInfo.socials.medium,
+      ],
+      email: personalInfo.socials.email,
+      location: personalInfo.location,
+    }),
   },
 };
 
