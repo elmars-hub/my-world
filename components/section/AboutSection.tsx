@@ -4,7 +4,6 @@ import Link from "next/link";
 import CurrentEx from "../content/CurrentEx";
 import FAQ from "../content/FAQ";
 import TitlePageContainer from "../utils/TitlePageContainer";
-import Contact from "../content/Contact";
 import SectionContainer from "../utils/SectionContainer";
 import SkillSection from "../section/SkillSection";
 import { personalInfo } from "@/config/personal";
@@ -99,11 +98,6 @@ const AboutSection = () => {
 
         <AnimationContainer customClassName="w-full">
           <SkillSection />
-        </AnimationContainer>
-
-        {/* Contact Section */}
-        <AnimationContainer customClassName="w-full mt-16">
-          <Contact />
         </AnimationContainer>
 
         {/* FAQ Section */}

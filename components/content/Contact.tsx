@@ -69,6 +69,7 @@ const ContactMe = () => {
   }, []);
 
   useEffect(() => {
+    // Update time only on client side to avoid hydration mismatch
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
@@ -154,7 +155,12 @@ const ContactMe = () => {
               <Clock className="h-5 w-5 text-muted-foreground" />
 
               <p className="text-base text-muted-foreground">
-                {currentTime.toLocaleTimeString()}
+                {currentTime.toLocaleTimeString([], { 
+                  hour: '2-digit', 
+                  minute: '2-digit', 
+                  second: '2-digit',
+                  hour12: true 
+                })}
               </p>
             </div>
           </div>

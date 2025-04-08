@@ -17,13 +17,13 @@ const FAQ = () => {
         content="Here are some common questions I receive. If you have any more questions, feel free to reach out!"
       />
 
-      <div className="bg-black rounded-2xl p-6 my-4">
+      <div className="bg-gray-100 dark:bg-black rounded-2xl p-6 my-4">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="text-black dark:text-white text-base hover:no-underline">
+            <AccordionTrigger className="text-gray-800 dark:text-white text-base hover:no-underline">
               Who are you?
             </AccordionTrigger>
-            <AccordionContent className="text-black dark:text-white text-base">
+            <AccordionContent className="text-gray-800 dark:text-white text-base">
               Hey there! 👋 I&apos;m Martin, a passionate Frontend Developer who
               loves bringing ideas to life through clean, responsive, and
               interactive user interfaces. I focus on crafting seamless digital
@@ -36,10 +36,10 @@ const FAQ = () => {
           </AccordionItem>
 
           <AccordionItem value="item-2">
-            <AccordionTrigger className="text-black dark:text-white text-base hover:no-underline">
+            <AccordionTrigger className="text-gray-800 dark:text-white text-base hover:no-underline">
               What technologies do you use?
             </AccordionTrigger>
-            <AccordionContent className="text-black dark:text-white text-base">
+            <AccordionContent className="text-gray-800 dark:text-white text-base">
               I specialize in frontend technologies, particularly: React,
               Next.js, TypeScript, JavaScript, Tailwind CSS, CSS Modules, Git,
               Vite, Figma, REST APIs. I&apos;m also exploring how to enhance
@@ -49,10 +49,10 @@ const FAQ = () => {
           </AccordionItem>
 
           <AccordionItem value="item-3">
-            <AccordionTrigger className="text-black dark:text-white text-base hover:no-underline">
+            <AccordionTrigger className="text-gray-800 dark:text-white text-base hover:no-underline">
               Can we hire you?
             </AccordionTrigger>
-            <AccordionContent className="text-black dark:text-white text-base">
+            <AccordionContent className="text-gray-800 dark:text-white text-base">
               Yes, I&apos;m currently open to job opportunities, internships, or
               collaboration on exciting frontend projects. If you&apos;re
               looking for someone who&apos;s detail-oriented, creative, and

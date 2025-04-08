@@ -34,7 +34,7 @@ const ProjectSection = () => {
           </p>
         </AnimationContainer>
 
-        <article className="w-full flex justify-center items-center content-center flex-wrap gap-6 mx-auto">
+        <article className="w-full flex flex-col justify-center items-center content-center gap-6">
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
