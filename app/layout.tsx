@@ -3,6 +3,8 @@ import "./globals.css";
 import { Outfit } from "next/font/google";
 import Header from "@/components/ui/Header";
 import { ThemeProvider } from "@/components/Provider";
+import Footer from "@/components/ui/Footer";
+import BackToTopButton from "@/components/ui/BackToTop";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -24,6 +26,9 @@ export default function RootLayout({
           <main className="flex flex-col justify-center items-center mx-auto">
             {children}
           </main>
+
+          <BackToTopButton />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -13,3 +13,9 @@ export interface TimelineEventProps {
   children: React.ReactNode;
   last?: boolean;
 }
+
+export interface ExternalLinkProps {
+  href: string;
+  customClassName?: string;
+  children: React.ReactNode;
+}

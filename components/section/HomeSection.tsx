@@ -5,6 +5,8 @@ import Hero from "../content/Hero";
 import About from "../content/About";
 import CurrentTimeLineExp from "../content/CurrentEx";
 import SkillSection from "../section/SkillSection";
+import ContactMe from "../content/Contact";
+import FAQ from "../content/FAQ";
 
 const HomeSection = () => {
   return (
@@ -31,6 +33,14 @@ const HomeSection = () => {
 
       <AnimationContainer customClassName="w-full mt-16">
         <SkillSection />
+      </AnimationContainer>
+
+      <AnimationContainer customClassName="w-full mt-16">
+        <ContactMe />
+      </AnimationContainer>
+
+      <AnimationContainer customClassName="w-full mt-16">
+        <FAQ />
       </AnimationContainer>
     </SectionContainer>
   );
