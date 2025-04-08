@@ -16,6 +16,16 @@ export interface PersonalInfo {
   phone: string;
 }
 
+export interface Project {
+  name: string;
+  description: string;
+  liveLink: string;
+  githubLink: string;
+  techStack: string[];
+  image?: string;
+  featured?: boolean;
+}
+
 export const personalInfo: PersonalInfo = {
   name: "Martin Ifeanyi",
   userName: "elmars",
@@ -31,3 +41,14 @@ export const personalInfo: PersonalInfo = {
     email: "martinsifeanyi247@gmail.com",
   },
 };
+
+export const projects: Project[] = [
+  {
+    name: "Project Name",
+    description: "A brief description of your project and what problems it solves.",
+    liveLink: "https://project-demo.com",
+    githubLink: "https://github.com/yourusername/project",
+    techStack: ["React", "TypeScript", "Tailwind CSS"],
+    featured: true
+  }
+];

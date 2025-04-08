@@ -1,8 +1,10 @@
 import React from "react";
 import SectionContainer from "../utils/SectionContainer";
 import TitlePageContainer from "../utils/TitlePageContainer";
-import { Link } from "lucide-react";
+import Link from "next/link";
 import AnimationContainer from "../utils/AnimationContainer";
+import { ProjectCard } from "../content/ProjectCard";
+import { personalInfo, projects } from "@/config/personal";
 // import { CardProjectProps } from "@/types/route";
 
 const ProjectSection = () => {
@@ -20,9 +22,9 @@ const ProjectSection = () => {
             These are most of the projects I&apos;ve done since I started
             programming, some of them are personal projects, freelance, work,
             practice, or for other situations. If you want to see absolutely all
-            my projects, go to my
+            my projects, go to my{" "}
             <Link
-              href="/"
+              href={personalInfo.socials.github}
               target="_blank"
               className="underline transition-all ease"
             >
@@ -32,7 +34,18 @@ const ProjectSection = () => {
           </p>
         </AnimationContainer>
 
-        <article className="w-full flex justify-center items-center content-center flex-wrap gap-6 mx-auto"></article>
+        <article className="w-full flex justify-center items-center content-center flex-wrap gap-6 mx-auto">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.name}
+              description={project.description}
+              tags={project.techStack}
+              githubUrl={project.githubLink}
+              liveUrl={project.liveLink}
+            />
+          ))}
+        </article>
       </div>
     </SectionContainer>
   );
