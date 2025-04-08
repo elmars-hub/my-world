@@ -66,7 +66,7 @@ const Socials = () => {
         );
       })}
       <motion.a
-        href="https://wa.link/wk4gts"
+        href="https://wa.link/505hq0"
         className="text-2xl hover:text-primary transition-all"
         target="_blank"
         title="WhatsApp"
