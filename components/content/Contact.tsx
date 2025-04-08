@@ -6,8 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { personalInfo } from "@/config/personal";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
 import ContactHeader from "../ui/ContactHeader";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { toast } from "sonner";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 interface UserInfo {
   ip?: string;
@@ -24,47 +36,35 @@ interface UserInfo {
   domain?: string;
 }
 
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
 const ContactMe = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
   const [isWaiting, setIsWaiting] = useState(false);
   const [waitTime, setWaitTime] = useState(0);
   const [userInfo, setUserInfo] = useState<UserInfo>({});
   const [currentTime, setCurrentTime] = useState<string>("");
+  const [returnUrl, setReturnUrl] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+  });
 
   useEffect(() => {
-    if (siteConfig.contact.debug) {
-      const fetchUserInfo = async () => {
-        try {
-          const res = await fetch("https://ipapi.co/json/");
-          const data = await res.json();
-          const browserInfo: UserInfo = {
-            ip: data.ip,
-            country: data.country_name,
-            city: data.city,
-            region: data.region,
-            timezone: data.timezone,
-            isp: data.org,
-            browser: navigator.userAgent,
-            platform: navigator.platform,
-            screenResolution: `${window.screen.width}x${window.screen.height}`,
-            os: navigator.platform,
-            chromeVersion: navigator.userAgent.match(
-              /Chrom(e|ium)\/([0-9]+)\./
-            )?.[2],
-            domain: window.location.href,
-          };
-          setUserInfo(browserInfo);
-        } catch (error) {
-          console.error("Error fetching user info:", error);
-        }
-      };
-
-      fetchUserInfo();
-    }
+    setReturnUrl(window.location.href);
   }, []);
 
   useEffect(() => {
@@ -83,15 +83,12 @@ const ContactMe = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     // Check if user is trying to send an email before the ratelimit window is up
     const lastSubmittedTime = sessionStorage.getItem("lastSubmittedTime");
     const lastEmail = sessionStorage.getItem("lastEmail");
     const currentTime = Date.now();
-    const rateLimit = siteConfig.contact.rateLimit;
-    const RATE_LIMIT_MS = rateLimit * 60 * 1000;
+    const RATE_LIMIT_MS = 80 * 1000; // 80 seconds
 
     if (
       lastSubmittedTime &&
@@ -106,24 +103,49 @@ const ContactMe = () => {
       return;
     }
 
-    if (lastEmail && lastEmail !== email) {
+    if (lastEmail && lastEmail !== values.email) {
       setIsWaiting(true);
       setWaitTime(Math.ceil(RATE_LIMIT_MS / 1000));
       return;
     }
 
-    // Simulate form submission and success
-    setTimeout(() => {
-      setIsSubmitted(true);
-      sessionStorage.setItem("lastSubmittedTime", currentTime.toString());
-      sessionStorage.setItem("lastEmail", email);
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/martinsifeanyi234@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...values,
+            _subject: `New contact form submission from ${values.name}`,
+            _template: "table",
+            _captcha: "false",
+          }),
+        }
+      );
 
-      // Reset form
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
-    }, 500);
+      if (response.ok) {
+        toast.success("Email successfully sent!", {
+          description: `Thank you ${values.name}, your message has been sent to ${personalInfo.name}`,
+        });
+        sessionStorage.setItem("lastSubmittedTime", currentTime.toString());
+        sessionStorage.setItem("lastEmail", values.email);
+        form.reset();
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit form", {
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -166,109 +188,132 @@ const ContactMe = () => {
         </div>
 
         <div className="w-full flex justify-center items-center flex-col">
-          <form
-            onSubmit={handleSubmit}
-            className="w-full space-y-4"
-            method="POST"
-            encType="multipart/form-data"
-          >
-            <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium">
-                Name
-              </label>
-              <Input
-                id="name"
-                placeholder="Enter your name"
-                value={name}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setName(e.target.value)
-                }
-                required
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="w-full space-y-4"
+              action="https://formsubmit.co/martinsifeanyi234@gmail.com"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission"
               />
-            </div>
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={returnUrl} />
 
-            <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:grid-cols-2">
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setEmail(e.target.value)
-                  }
-                  required
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }: { field: any }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="grid grid-cols-1 gap-4 lg:gap-8 sm:grid-cols-2">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }: { field: any }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="Enter your email"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }: { field: any }) => (
+                    <FormItem>
+                      <FormLabel>Phone</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="tel"
+                          placeholder="Enter your phone number"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="phone" className="text-sm font-medium">
-                  Phone
-                </label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="Enter your phone number"
-                  value={phone}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setPhone(e.target.value)
-                  }
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium">
-                Message
-              </label>
-              <Textarea
-                id="message"
-                placeholder="Enter your message"
-                value={message}
-                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                  setMessage(e.target.value)
-                }
-                rows={4}
-                required
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }: { field: any }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Enter your message"
+                        {...field}
+                        rows={4}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
 
-            {siteConfig.contact.debug && (
-              <div>
+              {siteConfig.contact.debug && (
                 <Input
                   type="hidden"
                   name="userInfo"
                   value={JSON.stringify(userInfo)}
-                  required
                 />
-              </div>
-            )}
+              )}
 
-            <Button
-              type="submit"
-              className="w-full rounded-md sm:w-auto bg-black text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-100"
-            >
-              <span className="font-medium">Send</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ml-3 h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <Button
+                type="submit"
+                className="w-full rounded-md sm:w-auto bg-black text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-100"
+                disabled={isSubmitting}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </Button>
-          </form>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <span className="font-medium">Send</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="ml-3 h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </>
+                )}
+              </Button>
+            </form>
+          </Form>
 
           {isWaiting && (
             <div className="mt-4 text-destructive">
@@ -280,26 +325,6 @@ const ContactMe = () => {
           )}
         </div>
       </div>
-
-      {isSubmitted && (
-        <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-card rounded-lg p-6 shadow-lg max-w-sm w-full mx-4">
-            <h3 className="text-lg font-semibold mb-2">
-              Thank you, {name}! <span>🎉</span>
-            </h3>
-            <p className="text-base text-muted-foreground mb-4">
-              Your message has been sent to {personalInfo.socials.email}{" "}
-              successfully.
-            </p>
-            <Button
-              onClick={() => setIsSubmitted(false)}
-              className="bg-white text-black hover:bg-gray-100 dark:bg-black dark:text-white dark:hover:bg-gray-900"
-            >
-              Close
-            </Button>
-          </div>
-        </div>
-      )}
     </AnimationContainer>
   );
 };

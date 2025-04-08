@@ -7,6 +7,7 @@ import Footer from "@/components/ui/Footer";
 import BackToTopButton from "@/components/ui/BackToTop";
 import ProgressBar from "@/components/ui/ProgressBar";
 import { personalInfo } from "@/config/personal";
+import { Toaster } from "sonner";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -116,6 +117,7 @@ export default function RootLayout({
             {children}
           </main>
 
+          <Toaster />
           <BackToTopButton />
           <Footer />
         </ThemeProvider>
