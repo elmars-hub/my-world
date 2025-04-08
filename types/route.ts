@@ -19,3 +19,15 @@ export interface ExternalLinkProps {
   customClassName?: string;
   children: React.ReactNode;
 }
+
+export interface CardProjectProps {
+  id?: string;
+  title: string;
+  des: string;
+  // category: string[];
+  category: string; // FIX THIS
+  repo: string;
+  link: string;
+  topics: string[];
+  date?: string;
+}

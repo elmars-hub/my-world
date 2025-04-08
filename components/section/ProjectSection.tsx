@@ -3,8 +3,13 @@ import SectionContainer from "../utils/SectionContainer";
 import TitlePageContainer from "../utils/TitlePageContainer";
 import { Link } from "lucide-react";
 import AnimationContainer from "../utils/AnimationContainer";
+// import { CardProjectProps } from "@/types/route";
 
 const ProjectSection = () => {
+  //   const [allProjectsInfo, setAllProjectsInfo] = useState<CardProjectProps[]>(
+  //     []
+  //   );
+
   return (
     <SectionContainer>
       <div className="w-full flex flex-col gap-6">
@@ -26,6 +31,8 @@ const ProjectSection = () => {
             .
           </p>
         </AnimationContainer>
+
+        <article className="w-full flex justify-center items-center content-center flex-wrap gap-6 mx-auto"></article>
       </div>
     </SectionContainer>
   );
