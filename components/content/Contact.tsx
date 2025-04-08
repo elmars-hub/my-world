@@ -70,10 +70,11 @@ const ContactMe = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
+      const currentHours = now.getHours();
       const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      setCurrentTime(`${hours}:${minutes}:${seconds}`);
+      const ampm = currentHours >= 12 ? 'PM' : 'AM';
+      const formattedHours = currentHours % 12 || 12; // Convert to 12-hour format
+      setCurrentTime(`${formattedHours}:${minutes} ${ampm}`);
     };
 
     updateTime(); // Initial update

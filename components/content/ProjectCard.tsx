@@ -30,7 +30,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <AnimationContainer>
-      <Card className="w-full max-w-xl transition-all duration-300 hover:shadow-lg">
+      <Card className="w-full max-w-xl transition-all duration-300 hover:shadow-lg hover:scale-105">
         <CardHeader>
           <CardTitle className="text-xl font-bold">{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
