@@ -83,30 +83,39 @@ const ContactMe = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (isWaiting && waitTime > 0) {
+      const timer = setInterval(() => {
+        setWaitTime((prev) => {
+          if (prev <= 1) {
+            setIsWaiting(false);
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [isWaiting, waitTime]);
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     // Check if user is trying to send an email before the ratelimit window is up
     const lastSubmittedTime = sessionStorage.getItem("lastSubmittedTime");
     const lastEmail = sessionStorage.getItem("lastEmail");
     const currentTime = Date.now();
-    const RATE_LIMIT_MS = 80 * 1000; // 80 seconds
+    const RATE_LIMIT_MS = 30 * 1000; // 30 seconds
 
-    if (
-      lastSubmittedTime &&
-      currentTime - parseInt(lastSubmittedTime) < RATE_LIMIT_MS
-    ) {
-      setIsWaiting(true);
-      setWaitTime(
-        Math.ceil(
-          (RATE_LIMIT_MS - (currentTime - parseInt(lastSubmittedTime))) / 1000
-        )
-      );
-      return;
-    }
-
-    if (lastEmail && lastEmail !== values.email) {
-      setIsWaiting(true);
-      setWaitTime(Math.ceil(RATE_LIMIT_MS / 1000));
-      return;
+    if (lastSubmittedTime) {
+      const timeSinceLastSubmission = currentTime - parseInt(lastSubmittedTime);
+      if (timeSinceLastSubmission < RATE_LIMIT_MS) {
+        setIsWaiting(true);
+        setWaitTime(
+          Math.ceil((RATE_LIMIT_MS - timeSinceLastSubmission) / 1000)
+        );
+        return;
+      }
     }
 
     setIsSubmitting(true);
