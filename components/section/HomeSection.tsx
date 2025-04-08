@@ -23,11 +23,11 @@ const HomeSection = () => {
         <Hero />
       </div>
 
-      <AnimationContainer customClassName="w-full mt-16">
+      <AnimationContainer customClassName="w-full mt-5 md:mt-10">
         <About />
       </AnimationContainer>
 
-      <AnimationContainer customClassName="w-full mt-16">
+      <AnimationContainer customClassName="w-full mt-5 md:mt-10">
         <CurrentTimeLineExp />
       </AnimationContainer>
 
@@ -35,11 +35,11 @@ const HomeSection = () => {
         <SkillSection />
       </AnimationContainer>
 
-      <AnimationContainer customClassName="w-full mt-16">
+      <AnimationContainer customClassName="w-full mt-5 md:mt-10">
         <ContactMe />
       </AnimationContainer>
 
-      <AnimationContainer customClassName="w-full mt-16">
+      <AnimationContainer customClassName="w-full mt-5 md:mt-10">
         <FAQ />
       </AnimationContainer>
     </SectionContainer>

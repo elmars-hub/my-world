@@ -71,8 +71,8 @@ const ContactMe = () => {
     const updateTime = () => {
       const now = new Date();
       const currentHours = now.getHours();
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const ampm = currentHours >= 12 ? 'PM' : 'AM';
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      const ampm = currentHours >= 12 ? "PM" : "AM";
       const formattedHours = currentHours % 12 || 12; // Convert to 12-hour format
       setCurrentTime(`${formattedHours}:${minutes} ${ampm}`);
     };
@@ -127,7 +127,7 @@ const ContactMe = () => {
   };
 
   return (
-    <AnimationContainer customClassName="w-full">
+    <AnimationContainer customClassName="w-full mb-5">
       <ContactHeader />
 
       <div className="w-full flex justify-between items-center flex-col mx-auto max-w-screen-xl">
@@ -160,9 +160,7 @@ const ContactMe = () => {
             <div className="flex items-center space-x-3">
               <Clock className="h-5 w-5 text-muted-foreground" />
 
-              <p className="text-base text-muted-foreground">
-                {currentTime}
-              </p>
+              <p className="text-base text-muted-foreground">{currentTime}</p>
             </div>
           </div>
         </div>
