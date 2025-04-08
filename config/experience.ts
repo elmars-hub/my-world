@@ -26,7 +26,7 @@ export const experienceEntries: ExperienceEntry[] = [
     startDate: "Feb 2025",
     endDate: "Present",
     isActive: true,
-    companyUrl: "gradific.com",
+    companyUrl: "https://gradific.com",
   },
   {
     title: "Servida | Sep. 2024 - Jan. 2025",

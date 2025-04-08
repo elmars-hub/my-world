@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/contact";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { personalInfo } from "@/config/personal";
 
 interface UserInfo {
   ip?: string;
@@ -119,7 +120,7 @@ const ContactMe = () => {
         <div className="w-full rounded-lg border bg-card p-6 shadow-sm mb-10">
           <h3 className="text-lg font-semibold mb-2">Email</h3>
           <p className="text-base text-muted-foreground">
-            martinsifeanyi247@gmail.com
+            {personalInfo.socials.email}
           </p>
         </div>
 
@@ -246,7 +247,7 @@ const ContactMe = () => {
               Thank you, {name}! <span>🎉</span>
             </h3>
             <p className="text-base text-muted-foreground mb-4">
-              Your message has been sent to {siteConfig.social.email}{" "}
+              Your message has been sent to {personalInfo.socials.email}{" "}
               successfully.
             </p>
             <Button
