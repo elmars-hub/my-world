@@ -23,7 +23,7 @@ const HomeSection = () => {
         <Hero />
       </div>
 
-      <AnimationContainer customClassName="w-full mt-5 md:mt-10">
+      <AnimationContainer customClassName="w-full mt-7 md:mt-10">
         <About />
       </AnimationContainer>
 
