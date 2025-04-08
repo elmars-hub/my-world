@@ -5,7 +5,16 @@ import AnimationContainer from "../utils/AnimationContainer";
 import ExternalLink from "./ExternalLinks";
 import Credits from "../content/Credits";
 import { personalInfo } from "@/config/personal";
-import { Home, User, FolderKanban, Github, Linkedin, Briefcase, BookOpen, Mail } from "lucide-react";
+import {
+  Home,
+  User,
+  FolderKanban,
+  Github,
+  Linkedin,
+  Briefcase,
+  BookOpen,
+  Mail,
+} from "lucide-react";
 
 const MediumIcon = () => (
   <svg

@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import AnimationContainer from "../utils/AnimationContainer";
-import SectionHeader from "../utils/SectionHeader";
 import { siteConfig } from "@/config/contact";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,7 +33,7 @@ const ContactMe = () => {
   const [isWaiting, setIsWaiting] = useState(false);
   const [waitTime, setWaitTime] = useState(0);
   const [userInfo, setUserInfo] = useState<UserInfo>({});
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState<string>("");
 
   useEffect(() => {
     if (siteConfig.contact.debug) {
@@ -69,10 +68,16 @@ const ContactMe = () => {
   }, []);
 
   useEffect(() => {
-    // Update time only on client side to avoid hydration mismatch
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
+    const updateTime = () => {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      setCurrentTime(`${hours}:${minutes}:${seconds}`);
+    };
+
+    updateTime(); // Initial update
+    const timer = setInterval(updateTime, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -155,12 +160,7 @@ const ContactMe = () => {
               <Clock className="h-5 w-5 text-muted-foreground" />
 
               <p className="text-base text-muted-foreground">
-                {currentTime.toLocaleTimeString([], { 
-                  hour: '2-digit', 
-                  minute: '2-digit', 
-                  second: '2-digit',
-                  hour12: true 
-                })}
+                {currentTime}
               </p>
             </div>
           </div>
