@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { personalInfo } from "@/config/personal";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import ContactHeader from "../ui/ContactHeader";
 
 interface UserInfo {
   ip?: string;
@@ -32,6 +34,7 @@ const ContactMe = () => {
   const [isWaiting, setIsWaiting] = useState(false);
   const [waitTime, setWaitTime] = useState(0);
   const [userInfo, setUserInfo] = useState<UserInfo>({});
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
     if (siteConfig.contact.debug) {
@@ -63,6 +66,14 @@ const ContactMe = () => {
 
       fetchUserInfo();
     }
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -110,18 +121,43 @@ const ContactMe = () => {
 
   return (
     <AnimationContainer customClassName="w-full">
-      <SectionHeader
-        id="contactme"
-        title="Contact Me"
-        content="Fill out the form below to contact me. Please, no spam. I strive to respond to all legitimate inquiries, but please be clear and concise in your message. Whether you have a question about my work, a project collaboration, or just want to connect, feel free to reach out. I look forward to hearing from you!"
-      />
+      <ContactHeader />
 
       <div className="w-full flex justify-between items-center flex-col mx-auto max-w-screen-xl">
-        <div className="w-full rounded-lg border bg-card p-6 shadow-sm mb-10">
-          <h3 className="text-lg font-semibold mb-2">Email</h3>
-          <p className="text-base text-muted-foreground">
-            {personalInfo.socials.email}
-          </p>
+        <div className="w-full rounded-lg border bg-card p-6 shadow-sm mb-10 space-y-4">
+          <div className="flex items-center space-x-3">
+            <Mail className="h-5 w-5 text-muted-foreground" />
+
+            <p className="text-base text-muted-foreground">
+              {personalInfo.socials.email}
+            </p>
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <Phone className="h-5 w-5 text-muted-foreground" />
+
+            <p className="text-base text-muted-foreground">
+              {personalInfo.phone}
+            </p>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <MapPin className="h-5 w-5 text-muted-foreground" />
+              <div>
+                <p className="text-base text-muted-foreground">
+                  {personalInfo.location}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Clock className="h-5 w-5 text-muted-foreground" />
+
+              <p className="text-base text-muted-foreground">
+                {currentTime.toLocaleTimeString()}
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="w-full flex justify-center items-center flex-col">

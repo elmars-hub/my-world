@@ -13,13 +13,15 @@ export interface PersonalInfo {
   location: string;
   bio: string;
   socials: SocialLinks;
+  phone: string;
 }
 
 export const personalInfo: PersonalInfo = {
   name: "Martin Ifeanyi",
   userName: "elmars",
   role: "Frontend Developer",
-  location: "Nigeria",
+  location: "Lagos, Nigeria",
+  phone: "+234 814 749 2547",
   bio: "I'm a passionate Frontend Developer focused on building innovative solutions and contributing to the tech community.",
   socials: {
     github: "https://github.com/elmars-hub",
