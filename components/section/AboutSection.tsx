@@ -32,7 +32,7 @@ const AboutSection = () => {
             ✌️.
           </p>
 
-          <ul className="text-base text-gray-600 dark:text-gray-400 list-disc pl-6 space-y-2 mt-4">
+          <ul className="text-base text-gray-600 dark:text-gray-400 space-y-2 mt-4">
             <li>
               ✨ I spend my spare time building and developing free Apps and Web
               Applications because I want to continue growing and honing my
@@ -92,7 +92,7 @@ const AboutSection = () => {
           </p>
         </AnimationContainer>
 
-        <AnimationContainer customClassName="w-full ">
+        <AnimationContainer customClassName="w-full -mb-10">
           <CurrentEx />
         </AnimationContainer>
 
@@ -101,7 +101,7 @@ const AboutSection = () => {
         </AnimationContainer>
 
         {/* FAQ Section */}
-        <AnimationContainer customClassName="w-full mt-16">
+        <AnimationContainer customClassName="w-full mt-10">
           <FAQ />
         </AnimationContainer>
       </div>

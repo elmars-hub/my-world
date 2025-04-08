@@ -7,7 +7,7 @@ import { TimelineEventProps } from "@/types/route";
 // Main Timeline container component
 export const Timeline = ({ children }: { children: React.ReactNode }) => {
   return (
-    <AnimationContainer customClassName="w-full md:mb-10 -mb-6">
+    <AnimationContainer customClassName="w-full md:mb-6 -mb-6">
       <SectionHeader
         title="Experience"
         content="I've had the opportunity to gain valuable experience as a software developer, both as a freelancer and as an open-source contributor. Below is a summary of my work and the skills I've developed along the way."

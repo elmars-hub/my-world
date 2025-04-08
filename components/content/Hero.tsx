@@ -4,6 +4,7 @@ import OptimizedImage from "../ui/OptimizedImage";
 import AnimationContainer from "../utils/AnimationContainer";
 import Link from "next/link";
 import { personalInfo } from "@/config/personal";
+import Socials from "./Socials";
 
 const Hero = () => {
   return (
@@ -30,6 +31,9 @@ const Hero = () => {
             I&apos;m a {personalInfo.role}
           </span>
         </h2>
+
+
+        <Socials/>
 
         {/* Buttons Section */}
         <nav className="flex gap-4 mt-6" aria-label="Primary navigation">
