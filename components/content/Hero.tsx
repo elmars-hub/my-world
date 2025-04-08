@@ -8,7 +8,7 @@ import Socials from "./Socials";
 
 const Hero = () => {
   return (
-    <section 
+    <section
       className="w-full flex justify-between flex-col-reverse lg:flex-row items-center"
       aria-label="Hero section"
     >
@@ -32,15 +32,15 @@ const Hero = () => {
           </span>
         </h2>
 
-
-        <Socials/>
+        <Socials />
 
         {/* Buttons Section */}
         <nav className="flex gap-4 mt-6" aria-label="Primary navigation">
           <Link
-            href="/"
+            href={personalInfo.socials.google}
             className="px-4 py-2 sm:px-6 sm:py-3 text-teal-500 font-bold rounded-lg border border-teal-500 hover:bg-teal-500 hover:text-white transition duration-300 backdrop-blur-sm bg-white/20 dark:bg-gray-800/30 dark:border-teal-300 dark:text-teal-300 dark:hover:bg-teal-600 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
             aria-label="Hire me"
+            target="_blank"
           >
             Hire Me
           </Link>

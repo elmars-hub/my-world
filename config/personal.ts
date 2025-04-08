@@ -4,6 +4,7 @@ export interface SocialLinks {
   twitter: string;
   medium: string;
   email: string;
+  google: string;
 }
 
 export interface PersonalInfo {
@@ -39,6 +40,8 @@ export const personalInfo: PersonalInfo = {
     twitter: "https://x.com/0xx_eth",
     medium: "https://medium.com/@martinsifeanyi247",
     email: "martinsifeanyi247@gmail.com",
+    google:
+      "https://docs.google.com/document/d/1EaOVw1kGpLLkcavTQyRHm2VfQN9hevSeU2rumifywEs/edit?usp=sharing",
   },
 };
 
