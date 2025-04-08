@@ -29,6 +29,15 @@ export const experienceEntries: ExperienceEntry[] = [
     companyUrl: "https://gradific.com",
   },
   {
+    title: "ShopDesk | Feb. 2025 - March 2025",
+    description:
+      "ShopDesk is a cloud based inventory management software that helps you track stock, process sales, and generate business records so you can focus on growing your business.",
+    startDate: "Feb 2025",
+    endDate: "March 2025",
+    isActive: false,
+    companyUrl: "https://shopdesk.im",
+  },
+  {
     title: "Servida | Sep. 2024 - Jan. 2025",
     description:
       "Servida is a platform that connects service providers with customers, making it easy to find and book services in your area.",
