@@ -6,6 +6,7 @@ import Link from "next/link";
 import ThemeToggle from "../utils/ThemeToggle";
 import MobileNav from "../utils/MobileNav";
 import NavItem from "../NavItem";
+import { personalInfo } from "@/config/personal";
 
 const Header = () => {
   return (
@@ -18,7 +19,7 @@ const Header = () => {
               className="hover:text-foreground dark:hover:text-white"
             >
               <strong className="text-foreground dark:text-white">
-                Martin Ifeanyi
+                {personalInfo.name}
               </strong>
             </Link>
           </h1>

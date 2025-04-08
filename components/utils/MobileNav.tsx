@@ -5,6 +5,7 @@ import React from "react";
 import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "../ui/sheet";
 import Link from "next/link";
 import Navbar from "../Navbar";
+import { personalInfo } from "@/config/personal";
 
 const MobileNav = () => {
   return (
@@ -22,7 +23,7 @@ const MobileNav = () => {
                 className="hover:text-foreground dark:hover:text-white"
               >
                 <strong className="text-foreground dark:text-white">
-                  Martin Ifeanyi
+                  {personalInfo.name}
                 </strong>
               </Link>
 

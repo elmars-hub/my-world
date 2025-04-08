@@ -31,7 +31,7 @@ const HomeSection = () => {
         <CurrentTimeLineExp />
       </AnimationContainer>
 
-      <AnimationContainer customClassName="w-full mt-16">
+      <AnimationContainer customClassName="w-full">
         <SkillSection />
       </AnimationContainer>
 

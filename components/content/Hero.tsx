@@ -3,6 +3,7 @@
 import Image from "next/image";
 import AnimationContainer from "../utils/AnimationContainer";
 import Link from "next/link";
+import { personalInfo } from "@/config/personal";
 
 const Hero = () => {
   return (
@@ -18,12 +19,12 @@ const Hero = () => {
           </span>
         </p>
         <h1 className="font-bold text-3xl lg:text-5xl text-center lg:text-start tracking-tight mb-3 mx-auto lg:mx-0 text-gray-900 dark:text-white">
-          Martin Ifeanyi
+          {personalInfo.name}
         </h1>
 
         <h2 className="flex items-center gap-2 text-lg lg:text-xl text-gray-700 dark:text-gray-400 mb-8 mx-auto lg:mx-0">
           <span className="relative w-[max-content] font-mono typing-animation text-gray-800 dark:text-gray-200">
-            I&apos;m a FrontEnd Developer
+            I&apos;m a {personalInfo.role}
           </span>
         </h2>
 

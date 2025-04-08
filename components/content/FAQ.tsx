@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import AnimationContainer from "../utils/AnimationContainer";
 import SectionHeader from "../utils/SectionHeader";
-import { Link } from "lucide-react";
+import { personalInfo } from "@/config/personal";
 
 const FAQ = () => {
   return (
@@ -23,45 +23,62 @@ const FAQ = () => {
             Who are you?
           </AccordionTrigger>
           <AccordionContent className="text-black dark:text-white text-base">
-            Hey there! 👋 I&apos;m Martin, a Full Stack developer passionate
-            about coding since childhood. I build innovative solutions using a
-            variety of technologies like Next.js, Node.js, Python, TypeScript,
-            Go, Rust, Flutter, and GenAI. I&apos;m also diving into MLOps and
-            always eager to learn new tools and techniques.
+            Hey there! 👋 I&apos;m Martin, a passionate Frontend Developer who
+            loves bringing ideas to life through clean, responsive, and
+            interactive user interfaces. I focus on crafting seamless digital
+            experiences using tools like React, Next.js, TypeScript, and
+            Tailwind CSS. I enjoy coding as much as I enjoy lo-fi beats and
+            anime soundtracks that help keep me in the zone. I&apos;m constantly
+            learning, improving, and building one component at a time.
           </AccordionContent>
         </AccordionItem>
+
         <AccordionItem value="item-2">
           <AccordionTrigger className="text-black dark:text-white text-base">
             What technologies do you use?
           </AccordionTrigger>
           <AccordionContent className="text-black dark:text-white text-base">
-            I am a full-stack developer with a focus on both frontend and
-            backend technologies. I mostly use tools like Next.js, TypeScript,
-            Node.js, Python (Django, Flask, FastAPI), MongoDB, and SQL for my
-            regular basis projects. I am also diving into Generative AI, Machine
-            Learning, and Data Science to build smarter, data-driven full-stack
-            applications.
+            I specialize in frontend technologies, particularly: React, Next.js,
+            TypeScript, JavaScript, Tailwind CSS, CSS Modules, Git, Vite, Figma,
+            REST APIs. I&apos;m also exploring how to enhance frontend
+            experiences with tools like Framer Motion for animations and
+            Headless UI for accessibility.
           </AccordionContent>
         </AccordionItem>
+
         <AccordionItem value="item-3">
           <AccordionTrigger className="text-black dark:text-white text-base">
             Can we hire you?
           </AccordionTrigger>
           <AccordionContent className="text-black dark:text-white text-base">
-            Yes, I am currently looking for job opportunities! Feel free to
-            reach out to me via email or Linkedin if you&apos;re interested in
-            hiring me or collaborating on exciting projects.
-            <br className="mb-2" />
-            You can contact me through:
-            <ul className="list-disc pl-6 text-black dark:text-white text-sm">
-              Email:{" "}
-              <Link href="/" className="text-blue-500 hover:underline">
-                martinsifeanyi234@gmail.com
-              </Link>{" "}
-              Linkedin:
-              <Link href="/" className="text-blue-500 hover:underline">
-                Martins Ifeanyi
-              </Link>
+            Yes, I&apos;m currently open to job opportunities, internships, or
+            collaboration on exciting frontend projects. If you&apos;re looking
+            for someone who&apos;s detail-oriented, creative, and always eager
+            to learn I&apos;d love to hear from you!
+            <br />
+            <br />
+            You can reach out via:
+            <ul className="list-disc pl-6 mt-2 text-sm">
+              <li>
+                Email:{" "}
+                <a
+                  href={`mailto:${personalInfo.socials.email}`}
+                  className="text-blue-500 hover:underline"
+                >
+                  martinsifeanyi234@gmail.com
+                </a>
+              </li>
+              <li>
+                LinkedIn:{" "}
+                <a
+                  href={personalInfo.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Martins Ifeanyi
+                </a>
+              </li>
             </ul>
           </AccordionContent>
         </AccordionItem>

@@ -7,6 +7,7 @@ import TitlePageContainer from "../utils/TitlePageContainer";
 import Contact from "../content/Contact";
 import SectionContainer from "../utils/SectionContainer";
 import SkillSection from "../section/SkillSection";
+import { personalInfo } from "@/config/personal";
 
 const AboutSection = () => {
   return (
@@ -16,11 +17,13 @@ const AboutSection = () => {
 
         <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
           <p className="text-base text-gray-600 dark:text-gray-400">
-            Hey there! 👋 I&apos;m <strong>Martin</strong>, a Full Stack
-            developer who loves to create new things. I have uploaded some
-            pretty cool stuff, so make sure to check it out on my
+            Hey there! 👋 I&apos;m <strong>Martin</strong>, a passionate
+            Frontend Developer who loves bringing ideas to life through clean,
+            responsive, and interactive user interfaces. I enjoy crafting web
+            experiences that are not only functional but intuitive and
+            enjoyable. You can check out some of my favorite projects on my -
             <Link
-              href="/"
+              href={personalInfo.socials.github}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white hover:underline transition-all ease"
@@ -37,10 +40,28 @@ const AboutSection = () => {
               skills 😄.
             </li>
             <li>
-              📚 I&apos;m currently focused on learning and exploring the
-              exciting fields of Machine Learning (ML) and Artificial
-              Intelligence (AI), including neural networks and other related
-              topics.
+              ✨ I focus on building modern, responsive web apps using{" "}
+              <strong>React</strong>, <strong>Next.js</strong>,{" "}
+              <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong>.
+              I’m passionate about great UI/UX, clean code, and creating apps
+              that just *feel* right.
+            </li>
+            <li>
+              📚 I’m currently deepening my skills in <strong>Next.js</strong>{" "}
+              and <strong>TypeScript</strong> while exploring how{" "}
+              <strong>AI and Machine Learning</strong> can enhance frontend
+              experiences. It&apos;s exciting learning how tech can feel more
+              human and intelligent.
+            </li>
+            <li>
+              🎧 Music plays a big role in my creative flow. Whether I’m coding
+              to lo-fi beats, vibing to J-pop, or zoning out with anime
+              soundtracks, music keeps me inspired and focused.
+            </li>
+            <li>
+              🍥 I’m a huge anime fan — the stories, animation, and emotion
+              behind each scene influence the way I think about design, emotion
+              in interfaces, and storytelling in tech.
             </li>
             <li>
               🤝 I&apos;m always excited to collaborate with others and
@@ -57,6 +78,11 @@ const AboutSection = () => {
               📬 If you come across anything interesting in my projects or have
               a project you&apos;d like me to collaborate on, please don&apos;t
               hesitate to get in touch. Let&apos;s create something awesome
+              together!
+            </li>
+            <li>
+              📬 Got a cool project, anime rec, or idea you’d like to chat
+              about? Feel free to reach out — let’s build something awesome
               together!
             </li>
           </ul>
