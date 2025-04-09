@@ -13,7 +13,7 @@ const About = () => {
         content={`Here is a little bit about me and my journey as a developer.`}
       />
 
-      <p className="text-sm sm:text-base md:text-lg text-foreground dark:text-white">
+      <p className="text-base sm:text-base md:text-lg text-foreground dark:text-white">
         Hi, I’m {personalInfo.name} a {personalInfo.role} passionate about
         crafting clean, responsive, and user-focused web experiences. My journey
         into tech started with a simple curiosity and grew into a love for
@@ -31,7 +31,7 @@ const About = () => {
         <br />
       </p>
 
-      <p className="text-sm sm:text-base md:text-lg text-foreground dark:text-white mt-4">
+      <p className="text-base sm:text-base md:text-lg text-foreground dark:text-white mt-4">
         If you’re interested in collaborating on something exciting or need help
         with a project, feel free to reach out. Let’s create something amazing
         together!
