@@ -121,7 +121,7 @@ const ContactMe = () => {
     setIsSubmitting(true);
     try {
       const response = await fetch(
-        "https://formsubmit.co/martinsifeanyi234@gmail.com",
+        "https://formsubmit.co/martinsifeanyi247@gmail.com",
         {
           method: "POST",
           headers: {
@@ -201,7 +201,7 @@ const ContactMe = () => {
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="w-full space-y-4"
-              action="https://formsubmit.co/martinsifeanyi234@gmail.com"
+              action="https://formsubmit.co/martinsifeanyi247@gmail.com"
               method="POST"
             >
               <input

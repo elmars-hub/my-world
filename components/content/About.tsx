@@ -14,7 +14,7 @@ const About = () => {
       />
 
       <p className="text-sm sm:text-base md:text-lg text-foreground dark:text-white">
-        Hi, I’m {personalInfo.name} — a {personalInfo.role} passionate about
+        Hi, I’m {personalInfo.name} a {personalInfo.role} passionate about
         crafting clean, responsive, and user-focused web experiences. My journey
         into tech started with a simple curiosity and grew into a love for
         building everything from passion projects to real-world applications.
