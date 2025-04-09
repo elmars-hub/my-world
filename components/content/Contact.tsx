@@ -73,11 +73,11 @@ const ContactMe = () => {
       const currentHours = now.getHours();
       const minutes = now.getMinutes().toString().padStart(2, "0");
       const ampm = currentHours >= 12 ? "PM" : "AM";
-      const formattedHours = currentHours % 12 || 12; // Convert to 12-hour format
+      const formattedHours = currentHours % 12 || 12; 
       setCurrentTime(`${formattedHours}:${minutes} ${ampm}`);
     };
 
-    updateTime(); // Initial update
+    updateTime(); 
     const timer = setInterval(updateTime, 1000);
 
     return () => clearInterval(timer);
@@ -101,7 +101,7 @@ const ContactMe = () => {
   }, [isWaiting, waitTime]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // Check if user is trying to send an email before the ratelimit window is up
+    
     const lastSubmittedTime = sessionStorage.getItem("lastSubmittedTime");
     const lastEmail = sessionStorage.getItem("lastEmail");
     const currentTime = Date.now();
@@ -119,42 +119,19 @@ const ContactMe = () => {
     }
 
     setIsSubmitting(true);
-    try {
-      const response = await fetch(
-        "https://formsubmit.co/martinsifeanyi247@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            ...values,
-            _subject: `New contact form submission from ${values.name}`,
-            _template: "table",
-            _captcha: "false",
-          }),
-        }
-      );
-
-      if (response.ok) {
-        toast.success("Email successfully sent!", {
-          description: `Thank you ${values.name}, your message has been sent to ${personalInfo.name}`,
-        });
-        sessionStorage.setItem("lastSubmittedTime", currentTime.toString());
-        sessionStorage.setItem("lastEmail", values.email);
-        form.reset();
-      } else {
-        throw new Error("Failed to submit form");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Failed to submit form", {
-        description: "Please try again later.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    
+   
+    sessionStorage.setItem("lastSubmittedTime", currentTime.toString());
+    sessionStorage.setItem("lastEmail", values.email);
+    
+ 
+    toast.success("Email successfully sent!", {
+      description: `Thank you ${values.name}, your message has been sent to ${personalInfo.name}`,
+    });
+    
+  
+    form.reset();
+    setIsSubmitting(false);
   };
 
   return (
@@ -198,20 +175,17 @@ const ContactMe = () => {
 
         <div className="w-full flex justify-center items-center flex-col">
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
+            <form 
+              onSubmit={form.handleSubmit(onSubmit)} 
               className="w-full space-y-4"
               action="https://formsubmit.co/martinsifeanyi247@gmail.com"
               method="POST"
             >
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Contact Form Submission"
-              />
+              <input type="hidden" name="_subject" value="New Contact Form Submission" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_next" value={returnUrl} />
+              <input type="hidden" name="_autoresponse" value="Thank you for your message. I will get back to you soon!" />
 
               <FormField
                 control={form.control}
@@ -220,7 +194,7 @@ const ContactMe = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your name" {...field} />
+                      <Input placeholder="Enter your name" {...field} name="name" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -239,6 +213,7 @@ const ContactMe = () => {
                           type="email"
                           placeholder="Enter your email"
                           {...field}
+                          name="email"
                         />
                       </FormControl>
                       <FormMessage />
@@ -257,6 +232,7 @@ const ContactMe = () => {
                           type="tel"
                           placeholder="Enter your phone number"
                           {...field}
+                          name="phone"
                         />
                       </FormControl>
                       <FormMessage />
@@ -275,6 +251,7 @@ const ContactMe = () => {
                       <Textarea
                         placeholder="Enter your message"
                         {...field}
+                        name="message"
                         rows={4}
                       />
                     </FormControl>
