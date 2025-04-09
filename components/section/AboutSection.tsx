@@ -15,7 +15,7 @@ const AboutSection = () => {
         <TitlePageContainer title="About Me" />
 
         <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
-          <p className="text-base text-gray-600 dark:text-gray-400">
+          <p className="text-base text-gray-600 dark:text-gray-400 leading-6 md:text-lg">
             Hey there! 👋 I&apos;m <strong>Martin</strong>, a passionate
             Frontend Developer who loves bringing ideas to life through clean,
             responsive, and interactive user interfaces. I enjoy crafting web
@@ -32,7 +32,7 @@ const AboutSection = () => {
             ✌️.
           </p>
 
-          <ul className="text-base text-gray-600 dark:text-gray-400 space-y-2 mt-4">
+          <ul className="text-base text-gray-600 dark:text-gray-400 space-y-2 mt-1 leading-6 md:text-[17px]">
             <li>
               ✨ I spend my spare time building and developing free Apps and Web
               Applications because I want to continue growing and honing my
@@ -86,7 +86,7 @@ const AboutSection = () => {
             </li>
           </ul>
 
-          <p className="text-base text-gray-600 dark:text-gray-400 mt-4">
+          <p className="text-base text-gray-600 dark:text-gray-400 mt-4 leading-6 md:text-[17px]">
             Feel free to explore my projects and get in touch for
             collaborations!
           </p>
