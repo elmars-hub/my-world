@@ -139,7 +139,7 @@ const ContactMe = () => {
 
       if (response.ok) {
         toast.success("Email successfully sent!", {
-          description: `Thank you ${values.name}, your message has been sent to ${personalInfo.name}`,
+          description: `Thank you ${values.name}, your message has been sent to ${personalInfo.userName}`,
         });
         sessionStorage.setItem("lastSubmittedTime", currentTime.toString());
         sessionStorage.setItem("lastEmail", values.email);
