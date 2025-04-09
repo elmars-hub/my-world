@@ -17,7 +17,7 @@ const FAQ = () => {
         content="Here are some common questions I receive. If you have any more questions, feel free to reach out!"
       />
 
-      <div className="bg-gray-100 dark:bg-black rounded-2xl p-6 my-4">
+      <div className="bg-gray-100 dark:bg-black rounded-xl p-6 my-4">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-gray-800 dark:text-white text-base hover:no-underline">
