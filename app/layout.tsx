@@ -8,6 +8,7 @@ import BackToTopButton from "@/components/ui/BackToTop";
 import ProgressBar from "@/components/ui/ProgressBar";
 import { personalInfo } from "@/config/personal";
 import { Toaster } from "sonner";
+import Head from "next/head";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Hey there! I'm Martin Ifeanyi, a developer on a mission to craft engaging experiences through code. Welcome to my corner of the web!",
   verification: {
-    google: "-", // for vercel
+    google: "hpoqyUGK3eGTIaj7vksntBZe-vxTAhI073Bvl6DAWPg",
   },
   referrer: "origin-when-cross-origin",
   keywords: [
@@ -108,6 +109,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <meta
+          name="google-site-verification"
+          content="hpoqyUGK3eGTIaj7vksntBZe-vxTAhI073Bvl6DAWPg"
+        />
+      </Head>
       <body className={outfit.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <ProgressBar />
