@@ -7,11 +7,7 @@ import SectionHeader from "../utils/SectionHeader";
 const About = () => {
   return (
     <AnimationContainer customClassName="w-full mb-16">
-      <SectionHeader
-        id="aboutme"
-        title="About Me"
-        content={`Here is a little bit about me and my journey as a developer.`}
-      />
+      <SectionHeader id="aboutme" title="About Me" content="" />
 
       <p className="text-base sm:text-base md:text-lg text-foreground dark:text-white text-justify">
         Hi, I&apos;m {personalInfo.name} a {personalInfo.role} passionate about
