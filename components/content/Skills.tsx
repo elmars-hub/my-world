@@ -31,13 +31,13 @@ const Skills = () => {
   };
 
   const item = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 20,
       scale: 0.8,
       rotate: -10,
     },
-    show: { 
+    show: {
       opacity: 1,
       y: 0,
       scale: 1,
@@ -46,13 +46,13 @@ const Skills = () => {
         type: "spring",
         stiffness: 260,
         damping: 20,
-      }
+      },
     },
   };
 
   return (
     <AnimationContainer>
-      <motion.div 
+      <motion.div
         ref={ref}
         className="w-full flex flex-col gap-8"
         variants={container}
@@ -155,7 +155,7 @@ const Skills = () => {
               className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
             >
               <Github className="w-6 h-6" />
-              Git & Github
+              Git
             </Badge>
           </motion.div>
 
@@ -188,7 +188,7 @@ const Skills = () => {
               className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
             >
               <Command className="w-6 h-6" />
-              Redux Toolkit
+              Redux
             </Badge>
           </motion.div>
         </motion.div>
