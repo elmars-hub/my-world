@@ -16,7 +16,7 @@ const Section: React.FC<SectionProps> = ({ title, content, id }) => {
       >
         {title}
       </h2>
-      <p className="text-sm md:text-[17px]  text-black dark:text-white text-center mx-auto mb-5 max-w-4xl">
+      <p className="text-sm md:text-[17px]  text-black dark:text-white mx-auto mb-5 max-w-4xl sm:text-base md:text-lg text-foreground text-justify">
         {content}
       </p>
     </div>
