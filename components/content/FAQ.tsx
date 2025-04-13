@@ -14,7 +14,7 @@ const FAQ = () => {
     <AnimationContainer customClassName="w-full">
       <SectionHeader
         title="Frequently Asked Questions"
-        content="Here are some common questions I receive. If you have any more questions, feel free to reach out!"
+        content="Here are some common questions I receive. If you have any more questions, feel free to ask!"
       />
 
       <div className="bg-gray-100 dark:bg-black rounded-xl p-6 my-4">
