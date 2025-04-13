@@ -15,7 +15,7 @@ const AboutSection = () => {
         <TitlePageContainer title="About Me" />
 
         <AnimationContainer customClassName="w-full flex flex-col gap-5 mb-8">
-          <p className="text-base text-gray-600 dark:text-gray-400 leading-6 md:text-lg">
+          <p className="text-base text-gray-600 dark:text-gray-400 leading-6 md:text-lg  sm:text-base  text-foreground  text-justify">
             Hey there! 👋 I&apos;m <strong>Martin</strong>, a passionate
             Frontend Developer who loves bringing ideas to life through clean,
             responsive, and interactive user interfaces. I enjoy crafting web
