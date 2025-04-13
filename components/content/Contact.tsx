@@ -20,6 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { motion } from "framer-motion";
 
 interface UserInfo {
   ip?: string;
@@ -291,10 +292,21 @@ const ContactMe = () => {
                 />
               )}
 
-              <Button
+              <motion.button
                 type="submit"
-                className="w-full rounded-md sm:w-auto bg-black text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-100"
+                className="w-full rounded-md sm:w-auto bg-black text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-100 flex items-center justify-center px-4 py-2 font-medium"
                 disabled={isSubmitting}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotate: [0, -2, 2, -1, 1, 0],
+                  transition: { 
+                    rotate: { 
+                      duration: 0.5,
+                      ease: "easeInOut"
+                    }
+                  }
+                }}
+                whileTap={{ scale: 0.95 }}
               >
                 {isSubmitting ? (
                   <>
@@ -320,7 +332,7 @@ const ContactMe = () => {
                     </svg>
                   </>
                 )}
-              </Button>
+              </motion.button>
             </form>
           </Form>
 
