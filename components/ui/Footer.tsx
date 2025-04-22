@@ -12,8 +12,8 @@ import {
   Github,
   Linkedin,
   Briefcase,
-  BookOpen,
   Mail,
+  Twitter,
 } from "lucide-react";
 
 const MediumIcon = () => (
@@ -88,8 +88,8 @@ const Footer = () => {
             href="/services"
             className="flex items-center gap-2  hover:text-gray-600 transition ease"
           >
-            <BookOpen className="w-5 h-5" />
-            Services
+            <Twitter className="w-5 h-5" />
+            Twitter
           </Link>
 
           <Link
