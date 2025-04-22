@@ -30,7 +30,8 @@ export const metadata: Metadata = {
     "Ifeanyi",
     "Uchola",
     "elmars",
-    "Martin Ifeanyi",
+    "Martin Ifeanyi elmars",
+    "Martin elmars",
     "Martin Uchola",
     "Martin Ifeanyi Uchola",
     "elmars",
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
     "Martin Ifeanyi Uchola Portfolio Website",
   ],
   authors: [
-    { name: "Ifeanyi" },
-    { name: "elmars" },
+    { name: "Ifeanyi", url: "https://martinifeanyi.vercel.app/" },
+    { name: "elmars", url: "https://martinifeanyi.vercel.app/" },
     { name: "Martin", url: "https://martinifeanyi.vercel.app/" },
   ],
   alternates: {
