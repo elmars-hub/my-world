@@ -85,7 +85,7 @@ const Footer = () => {
             Projects
           </Link>
           <Link
-            href="/services"
+            href={personalInfo.socials.twitter}
             className="flex items-center gap-2  hover:text-gray-600 transition ease"
           >
             <Twitter className="w-5 h-5" />
