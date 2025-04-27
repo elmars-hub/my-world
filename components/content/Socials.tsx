@@ -26,12 +26,12 @@ const icons = [
   },
 
   {
-    path: "https://twitter.com/0xx_eth",
+    path: "https://twitter.com/elmarshub",
     name: <Twitter />,
     title: "Twitter X",
   },
   {
-    path: "https://www.instagram.com/elmars_dev/",
+    path: "https://www.instagram.com/elmarshub/",
     name: <Instagram />,
     title: "Instagram",
   },

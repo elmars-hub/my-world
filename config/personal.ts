@@ -28,7 +28,7 @@ export interface Project {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: "Martin Ifeanyi",
+  name: "Martin Elmars",
   userName: "elmars",
   role: "Frontend Developer",
   location: "Lagos, Nigeria",
@@ -37,7 +37,7 @@ export const personalInfo: PersonalInfo = {
   socials: {
     github: "https://github.com/elmars-hub",
     linkedin: "https://www.linkedin.com/in/martin-ifeanyi/",
-    twitter: "https://x.com/0xx_eth",
+    twitter: "https://x.com/elmarshub",
     medium: "https://medium.com/@martinsifeanyi247",
     email: "martinsifeanyi247@gmail.com",
     google:
