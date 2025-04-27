@@ -43,7 +43,7 @@ const AboutSection = () => {
               <strong>React</strong>, <strong>Next.js</strong>,{" "}
               <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong>.
               I’m passionate about great UI/UX, clean code, and creating apps
-              that just *feel* right.
+              that just feel right.
             </li>
             <li>
               📚 I’m currently deepening my skills in <strong>Next.js</strong>{" "}
@@ -54,8 +54,8 @@ const AboutSection = () => {
             </li>
             <li>
               🎧 Music plays a big role in my creative flow. Whether I’m coding
-              to lo-fi beats, vibing to J-pop, or zoning out with anime
-              soundtracks, music keeps me inspired and focused.
+              to lo-fi beats, vibing to hip-hop, or zoning out with soundtracks,
+              music keeps me inspired and focused.
             </li>
             <li>
               🍥 I’m a huge anime fan — the stories, animation, and emotion
@@ -81,7 +81,7 @@ const AboutSection = () => {
             </li>
             <li>
               📬 Got a cool project, anime rec, or idea you’d like to chat
-              about? Feel free to reach out — let’s build something awesome
+              about? Feel free to reach out let’s build something awesome
               together!
             </li>
           </ul>
