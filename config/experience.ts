@@ -20,6 +20,15 @@ export const experienceEntries: ExperienceEntry[] = [
     companyUrl: "https://github.com/elmars-hub",
   },
   {
+    title: "HNG Tech | April. 2025 - Present",
+    description:
+      "HNG is a company with a mission — we work with the very best techies to help them enhance their skills through our HNG internship program and build their network. We also work with clients to find them the best technical talent across the globe.",
+    startDate: "April 2025",
+    endDate: "Present",
+    isActive: true,
+    companyUrl: "https://hng.tech",
+  },
+  {
     title: "Gradific | Feb. 2025 - Present",
     description:
       "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
