@@ -30,7 +30,7 @@ export interface Project {
 export const personalInfo: PersonalInfo = {
   name: "Martin Elmars",
   userName: "elmars",
-  role: "Frontend Developer",
+  role: "Frontend Alchemist",
   location: "Lagos, Nigeria",
   phone: "+234 814 749 2547",
   bio: "I'm a passionate Frontend Developer focused on building innovative solutions and contributing to the tech community.",
