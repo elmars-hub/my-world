@@ -47,22 +47,6 @@ export const personalInfo: PersonalInfo = {
 
 export const projects: Project[] = [
   {
-    name: "CareerCraft AI",
-    description:
-      "CareerCraft is a modern web application designed to help users prepare for interviews through AI-powered practice sessions.",
-    liveLink: "https://mock-interview-ai-chi.vercel.app/",
-    githubLink: "https://github.com/elmars-hub/mock-interview-ai",
-    techStack: [
-      "NextJs",
-      "Firebase",
-      "TypeScript",
-      "Tailwind CSS",
-      "OpenAI API",
-      "Shadcn",
-    ],
-    featured: true,
-  },
-  {
     name: "HNG Tech",
     description:
       "HNG is a company with a mission — we work with the very best techies to help them enhance their skills through our HNG internship program and build their network. We also work with clients to find them the best technical talent across the globe.",
@@ -87,6 +71,22 @@ export const projects: Project[] = [
     liveLink: "https://gradific.com",
     githubLink: "",
     techStack: ["NextJs", "TypeScript", "Shadcn", "Tailwind CSS"],
+    featured: true,
+  },
+  {
+    name: "CareerCraft AI",
+    description:
+      "CareerCraft is a modern web application designed to help users prepare for interviews through AI-powered practice sessions.",
+    liveLink: "https://mock-interview-ai-chi.vercel.app/",
+    githubLink: "https://github.com/elmars-hub/mock-interview-ai",
+    techStack: [
+      "NextJs",
+      "Firebase",
+      "TypeScript",
+      "Tailwind CSS",
+      "OpenAI API",
+      "Shadcn",
+    ],
     featured: true,
   },
   {
