@@ -63,6 +63,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: "HNG Tech",
+    description:
+      "HNG is a company with a mission — we work with the very best techies to help them enhance their skills through our HNG internship program and build their network. We also work with clients to find them the best technical talent across the globe.",
+    liveLink: "https://hng.tech/",
+    githubLink: "",
+    techStack: ["NextJs", "TypeScript", "Tailwind CSS", "Prisma"],
+    featured: true,
+  },
+  {
     name: "ShopDesk",
     description:
       "ShopDesk is a cloud based inventory management software that helps you track stock, process sales, and generate business records so you can focus on growing your business.",
