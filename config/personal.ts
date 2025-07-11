@@ -65,6 +65,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: "GreenStock",
+    description:
+      "Discover, organize, and keep track of all your favorite plants in one place. With GreenStock, managing your green collection has never been easier.",
+    liveLink: "https://greenstock-fei3.vercel.app/",
+    githubLink: "https://github.com/elmars-hub/greenstock",
+    techStack: ["NextJs", "Typescript", "Tailwind", "Prisma", "Neon", "Shadcn"],
+    featured: true,
+  },
+  {
     name: "Gradific",
     description:
       "Gradific is a platform that connects students with tutors for personalized learning experiences.",
@@ -115,6 +124,15 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: "Pizza Hut",
+    description:
+      "A pizza app that helps you make orders and also track you order",
+    liveLink: "https://pizza-hut-sigma.vercel.app",
+    githubLink: "https://github.com/elmars-hub/Pizza-Hut",
+    techStack: ["React", "Javascript", "Tailwind"],
+    featured: true,
+  },
+  {
     name: "Todo App",
     description:
       "A simple todo app that allows you to manage your tasks and keep track of your progress.",
@@ -132,6 +150,7 @@ export const projects: Project[] = [
     techStack: ["HTML", "CSS", "JavaScript"],
     featured: true,
   },
+
   {
     name: "Conference Ticket",
     description:
