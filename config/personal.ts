@@ -64,15 +64,7 @@ export const projects: Project[] = [
     techStack: ["NextJs", "TypeScript", "Redux", "Tailwind CSS", "Tanstack"],
     featured: true,
   },
-  {
-    name: "GreenStock",
-    description:
-      "Discover, organize, and keep track of all your favorite plants in one place. With GreenStock, managing your green collection has never been easier.",
-    liveLink: "https://greenstock-fei3.vercel.app/",
-    githubLink: "https://github.com/elmars-hub/greenstock",
-    techStack: ["NextJs", "Typescript", "Tailwind", "Prisma", "Neon", "Shadcn"],
-    featured: true,
-  },
+
   {
     name: "Gradific",
     description:
