@@ -5,6 +5,7 @@ export interface SocialLinks {
   medium: string;
   email: string;
   google: string;
+  instagram: string;
 }
 
 export interface PersonalInfo {
@@ -15,6 +16,7 @@ export interface PersonalInfo {
   bio: string;
   socials: SocialLinks;
   phone: string;
+  knowsAbout: string[];
 }
 
 export interface Project {
@@ -35,6 +37,7 @@ export const personalInfo: PersonalInfo = {
   phone: "+234 814 749 2547",
   bio: "I'm a passionate Frontend Developer focused on building innovative solutions and contributing to the tech community.",
   socials: {
+    instagram: "https://www.instagram.com/elmarshub/",
     github: "https://github.com/elmars-hub",
     linkedin: "https://www.linkedin.com/in/martin-ifeanyi/",
     twitter: "https://x.com/elmarshub",
@@ -43,6 +46,14 @@ export const personalInfo: PersonalInfo = {
     google:
       "https://docs.google.com/document/d/1EaOVw1kGpLLkcavTQyRHm2VfQN9hevSeU2rumifywEs/edit?usp=sharing",
   },
+  knowsAbout: [
+    "Next.js",
+    "TypeScript",
+    "React",
+    "SEO",
+    "Web Development",
+    "Redux",
+  ],
 };
 
 export const projects: Project[] = [

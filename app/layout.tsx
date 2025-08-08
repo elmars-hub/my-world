@@ -59,6 +59,8 @@ export const metadata: Metadata = {
       "@type": "Person",
       ...personalInfo,
       sameAs: Object.values(personalInfo.socials),
+      url: "https://elmarshub.vercel.app/",
+      image: "https://elmarshub.vercel.app/opengraph-image.webp",
     }),
   },
 };
