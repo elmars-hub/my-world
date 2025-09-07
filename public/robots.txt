@@ -1,12 +1,10 @@
+# *
 User-agent: *
 Allow: /
 
-# Sitemap
+# Host
+Host: https://elmarshub.vercel.app
+
+# Sitemaps
 Sitemap: https://elmarshub.vercel.app/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
-
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
+Sitemap: https://elmarshub.vercel.app/server-sitemap.xml
