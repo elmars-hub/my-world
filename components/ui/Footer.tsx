@@ -14,6 +14,7 @@ import {
   Briefcase,
   Mail,
   Twitter,
+  Instagram,
 } from "lucide-react";
 
 const MediumIcon = () => (
@@ -51,13 +52,10 @@ const Footer = () => {
             About
           </Link>
 
-          <Link
-            href="/projects"
-            className="flex items-center gap-2  hover:text-gray-600 transition ease"
-          >
-            <FolderKanban className="w-5 h-5" />
-            Projects
-          </Link>
+          <ExternalLink href={personalInfo.socials.instagram}>
+            <Instagram className="w-5 h-5" />
+            Instagram
+          </ExternalLink>
         </div>
 
         <div className="flex flex-col space-y-4 ">
@@ -74,6 +72,7 @@ const Footer = () => {
             <MediumIcon />
             Medium
           </ExternalLink>
+         
         </div>
 
         <div className="flex flex-col space-y-4">

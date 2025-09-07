@@ -5,12 +5,9 @@ import Link from "next/link";
 import AnimationContainer from "../utils/AnimationContainer";
 import { ProjectCard } from "../content/ProjectCard";
 import { personalInfo, projects } from "@/config/personal";
-// import { CardProjectProps } from "@/types/route";
 
 const ProjectSection = () => {
-  //   const [allProjectsInfo, setAllProjectsInfo] = useState<CardProjectProps[]>(
-  //     []
-  //   );
+
 
   return (
     <SectionContainer>
@@ -34,16 +31,17 @@ const ProjectSection = () => {
           </p>
         </AnimationContainer>
 
-        <article className="w-full flex flex-col justify-center items-center content-center gap-6">
+        <article className="w-full flex flex-col items-center gap-6">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.name}
-              description={project.description}
-              tags={project.techStack}
-              githubUrl={project.githubLink}
-              liveUrl={project.liveLink}
-            />
+            <div key={index} className="w-full max-w-xl">
+              <ProjectCard
+                title={project.name}
+                description={project.description}
+                tags={project.techStack}
+                githubUrl={project.githubLink}
+                liveUrl={project.liveLink}
+              />
+            </div>
           ))}
         </article>
       </div>
