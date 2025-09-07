@@ -30,13 +30,13 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <AnimationContainer>
-      <Card className="w-full max-w-xl transition-all duration-300 hover:shadow-lg hover:scale-105">
-        <CardHeader>
+      <Card className="w-full max-w-xl min-h-64 flex flex-col transition-all duration-300 hover:shadow-lg hover:scale-105">
+        <CardHeader className="flex-shrink-0">
           <CardTitle className="text-xl font-bold">{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <CardDescription className="line-clamp-3">{description}</CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-1">
+        <CardContent className="flex-1 flex flex-col justify-between">
+          <div className="flex flex-wrap">
             {tags.map((tag, index) => (
               <Badge
                 key={index}
@@ -48,7 +48,7 @@ export function ProjectCard({
             ))}
           </div>
         </CardContent>
-        <CardFooter className="flex gap-2">
+        <CardFooter className="flex gap-2 flex-shrink-0">
           <Button variant="outline" size="sm" asChild>
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-4 w-4" />
