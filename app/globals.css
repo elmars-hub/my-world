@@ -7,9 +7,10 @@ body {
   scroll-behavior: smooth;
 }
 
-body,
-* {
-  box-sizing: content-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 ::selection {
@@ -169,4 +170,31 @@ body,
   border-right: 2px solid var(--caret-color, #fff);
   animation: typing 3.5s steps(30) 1s 1 normal both,
     blink-caret 0.75s step-end infinite;
+  will-change: width;
+}
+
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-animation {
+    animation: none;
+    border-right: none;
+  }
+  
+  .focus-jump:focus,
+  .focus-jump:hover {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

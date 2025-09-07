@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import AnimationContainer from "../utils/AnimationContainer";
 import { Badge } from "../ui/badge";
 import { motion, useInView } from "framer-motion";
@@ -19,7 +19,7 @@ const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const container = {
+  const container = useMemo(() => ({
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -28,9 +28,9 @@ const Skills = () => {
         delayChildren: 0.3,
       },
     },
-  };
+  }), []);
 
-  const item = {
+  const item = useMemo(() => ({
     hidden: {
       opacity: 0,
       y: 20,
@@ -48,7 +48,22 @@ const Skills = () => {
         damping: 20,
       },
     },
-  };
+  }), []);
+
+  const skillsData = useMemo(() => [
+    { icon: FileCode, name: "HTML" },
+    { icon: FileCode, name: "CSS" },
+    { icon: FileCode2, name: "JavaScript" },
+    { icon: FileCode2, name: "TypeScript" },
+    { icon: Atom, name: "ReactJs" },
+    { icon: Hexagon, name: "Next.Js" },
+    { icon: Bolt, name: "Supabase" },
+    { icon: Database, name: "Sanity" },
+    { icon: Github, name: "Git" },
+    { icon: Frame, name: "Framer Motion" },
+    { icon: Wind, name: "TailwindCss" },
+    { icon: Command, name: "Redux" },
+  ], []);
 
   return (
     <AnimationContainer>
@@ -60,137 +75,23 @@ const Skills = () => {
         animate={isInView ? "show" : "hidden"}
       >
         <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {/* HTML */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <FileCode className="w-6 h-6" />
-              HTML
-            </Badge>
-          </motion.div>
-
-          {/* CSS */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <FileCode className="w-6 h-6" />
-              CSS
-            </Badge>
-          </motion.div>
-
-          {/* JavaScript */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <FileCode2 className="w-6 h-6" />
-              JavaScript
-            </Badge>
-          </motion.div>
-
-          {/* TypeScript */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <FileCode2 className="w-6 h-6" />
-              TypeScript
-            </Badge>
-          </motion.div>
-
-          {/* ReactJS */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Atom className="w-6 h-6" />
-              ReactJs
-            </Badge>
-          </motion.div>
-
-          {/* NextJS */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Hexagon className="w-6 h-6" />
-              Next.Js
-            </Badge>
-          </motion.div>
-
-          {/* Supabase */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Bolt className="w-6 h-6" />
-              Supabase
-            </Badge>
-          </motion.div>
-
-          {/* Sanity */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Database className="w-6 h-6" />
-              Sanity
-            </Badge>
-          </motion.div>
-
-          {/* Git & GitHub */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Github className="w-6 h-6" />
-              Git
-            </Badge>
-          </motion.div>
-
-          {/* Framer Motion */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Frame className="w-6 h-6" />
-              Framer Motion
-            </Badge>
-          </motion.div>
-
-          {/* TailwindCSS */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Wind className="w-6 h-6" />
-              TailwindCss
-            </Badge>
-          </motion.div>
-
-          {/* Redux Toolkit */}
-          <motion.div variants={item}>
-            <Badge
-              variant="outline"
-              className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105"
-            >
-              <Command className="w-6 h-6" />
-              Redux
-            </Badge>
-          </motion.div>
+          {skillsData.map((skill, index) => {
+            const IconComponent = skill.icon;
+            return (
+              <motion.div key={skill.name} variants={item}>
+                <Badge
+                  variant="outline"
+                  className="flex items-center justify-center gap-2 py-6 text-base transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  role="img"
+                  aria-label={`${skill.name} skill`}
+                  tabIndex={0}
+                >
+                  <IconComponent className="w-6 h-6" aria-hidden="true" />
+                  <span>{skill.name}</span>
+                </Badge>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </AnimationContainer>

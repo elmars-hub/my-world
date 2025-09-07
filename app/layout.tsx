@@ -6,11 +6,18 @@ import { ThemeProvider } from "@/components/Provider";
 import Footer from "@/components/ui/Footer";
 import BackToTopButton from "@/components/ui/BackToTop";
 import ProgressBar from "@/components/ui/ProgressBar";
+import SkipLinks from "@/components/SkipLinks";
 import { personalInfo } from "@/config/personal";
 import { Toaster } from "sonner";
 import Head from "next/head";
 
-const outfit = Outfit({ subsets: ["latin"] });
+const outfit = Outfit({ 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: true,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://elmarshub.vercel.app/"),
@@ -115,10 +122,11 @@ export default function RootLayout({
       </Head>
       <body className={outfit.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
+          <SkipLinks />
           <ProgressBar />
           <Header />
 
-          <main className="flex flex-col justify-center items-center mx-auto">
+          <main id="main-content" className="flex flex-col justify-center items-center mx-auto" role="main">
             {children}
           </main>
 
