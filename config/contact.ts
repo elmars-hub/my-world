@@ -10,10 +10,10 @@ export interface ContactConfig {
 
 export const siteConfig: ContactConfig = {
   social: {
-    email: "your.email@example.com", // Replace with your email
+    email: "martinsifeanyi247@gmail.com",
   },
   contact: {
-    rateLimit: 10, // 10 minutes between submissions
-    debug: false, // Set to true to enable debug features
+    rateLimit: 1, 
+    debug: false, 
   },
 };

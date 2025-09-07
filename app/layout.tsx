@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://elmarshub.vercel.app/"),
   title: {
     template: "Martin Elmars | %s",
-    default: "Martin Elmars | Home",
+    default: "Martin Elmars | Frontend Alchemist",
   },
   description:
-    "Hey there! I'm Martin Elmars, a developer on a mission to craft engaging experiences through code. Welcome to my corner of the web!",
+    "Martin Elmars is a passionate Frontend Developer specializing in React, Next.js, TypeScript, and Tailwind CSS. Building modern, responsive web applications with a focus on user experience and clean code.",
   verification: {
     google: "hpoqyUGK3eGTIaj7vksntBZe-vxTAhI073Bvl6DAWPg",
   },
@@ -30,15 +30,43 @@ export const metadata: Metadata = {
     "Software Engineer",
     "Frontend Developer",
     "Web Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "UI/UX Developer",
     "Portfolio Website",
+    "Web Development",
+    "JavaScript Developer",
+    "Tailwind CSS",
+    "Framer Motion",
   ],
   authors: [{ name: "Martin Elmars", url: "https://elmarshub.vercel.app/" }],
+  creator: "Martin Elmars",
+  publisher: "Martin Elmars",
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    images: "/opengraph-image.webp",
-    title: "Martin Elmars | Developer Extraordinaire",
+    images: [
+      {
+        url: "/opengraph-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Martin Elmars - Frontend Engineer",
+      },
+    ],
+    title: "Martin Elmars | Frontend Engineer",
     description:
       "Welcome to my digital hub! Explore my projects, journey, and passion for turning ideas into reality with code.",
     url: "https://elmarshub.vercel.app/",
@@ -49,18 +77,25 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Martin Elmars | Developer Extraordinaire",
-    description: "Frontend Developer crafting engaging web experiences",
+    description: "Passionate Frontend Developer crafting modern web experiences with React, Next.js, TypeScript, and Tailwind CSS.",
     creator: "@elmarshub",
-    images: "/opengraph-image.webp",
+    images: ["/opengraph-image.webp"],
   },
   other: {
     "schema:Person": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
-      ...personalInfo,
-      sameAs: Object.values(personalInfo.socials),
+      name: personalInfo.name,
+      jobTitle: personalInfo.role,
+      description: personalInfo.bio,
       url: "https://elmarshub.vercel.app/",
       image: "https://elmarshub.vercel.app/opengraph-image.webp",
+      sameAs: Object.values(personalInfo.socials),
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: personalInfo.location,
+      },
+      knowsAbout: personalInfo.knowsAbout,
     }),
   },
 };

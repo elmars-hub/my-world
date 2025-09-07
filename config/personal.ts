@@ -26,7 +26,10 @@ export interface Project {
   githubLink: string;
   techStack: string[];
   image?: string;
+  screenshots?: string[];
+  category: 'web' | 'mobile' | 'ai' | 'ecommerce' | 'tool' | 'game';
   featured?: boolean;
+  status: 'completed' | 'in-progress' | 'archived';
 }
 
 export const personalInfo: PersonalInfo = {
@@ -52,7 +55,7 @@ export const personalInfo: PersonalInfo = {
     "React",
     "SEO",
     "Web Development",
-    "Redux",
+    "Redux Toolkit",
   ],
 };
 
@@ -64,41 +67,49 @@ export const projects: Project[] = [
     liveLink: "https://hng.tech/",
     githubLink: "",
     techStack: ["NextJs", "TypeScript", "Tailwind CSS", "Prisma"],
+    category: "web",
+    status: "completed",
     featured: true,
   },
   {
     name: "ShopDesk",
     description:
-      "ShopDesk is a cloud based inventory management software that helps you track stock, process sales, and generate business records so you can focus on growing your business.",
+      "A comprehensive cloud-based inventory management platform designed for modern businesses. Features real-time stock tracking, automated sales processing, detailed analytics dashboard, and comprehensive business reporting. Includes advanced features like barcode scanning, multi-location inventory management, supplier tracking, and automated reorder notifications to streamline business operations.",
     liveLink: "https://shopdesk.im",
     githubLink: "",
-    techStack: ["NextJs", "TypeScript", "Redux", "Tailwind CSS", "Tanstack"],
+    techStack: ["NextJs", "TypeScript", "Redux Toolkit", "Tailwind CSS", "TanStack Query", "Prisma"],
+    category: "ecommerce",
+    status: "completed",
     featured: true,
   },
 
   {
     name: "GreenStock",
     description:
-      "Discover, organize, and keep track of all your favorite plants in one place. With GreenStock, managing your green collection has never been easier.",
+      "A comprehensive plant management platform for gardening enthusiasts and plant collectors. Features include plant cataloging with detailed care instructions, watering schedules, growth tracking, and photo galleries. Users can create custom plant collections, set care reminders, and access a community-driven plant database with expert tips and troubleshooting guides.",
     liveLink: "https://greenstock-fei3.vercel.app/",
     githubLink: "https://github.com/elmars-hub/greenstock",
-    techStack: ["NextJs", "Typescript", "Tailwind", "Prisma", "Neon", "Shadcn"],
+    techStack: ["NextJs", "TypeScript", "Tailwind CSS", "Prisma", "Neon DB", "Shadcn", "NeonAuth"],
+    category: "web",
+    status: "completed",
     featured: true,
   },
 
   {
     name: "Gradific",
     description:
-      "Gradific is a platform that connects students with tutors for personalized learning experiences.",
+      "An innovative educational platform that bridges the gap between students and qualified tutors through advanced matching algorithms. Features include real-time video lessons, interactive whiteboards, progress tracking, assignment management, and secure payment processing. The platform supports multiple subjects and learning styles with comprehensive tutor profiles and student feedback systems.",
     liveLink: "https://gradific.com",
     githubLink: "",
-    techStack: ["NextJs", "TypeScript", "Shadcn", "Tailwind CSS"],
+    techStack: ["NextJs", "TypeScript", "Shadcn", "Tailwind CSS", "WebRTC", "Stripe", "Prisma"],
+    category: "web",
+    status: "completed",
     featured: true,
   },
   {
     name: "CareerCraft AI",
     description:
-      "CareerCraft is a modern web application designed to help users prepare for interviews through AI-powered practice sessions.",
+      "An intelligent interview preparation platform powered by advanced AI technology. Features realistic mock interviews with industry-specific questions, real-time speech analysis, personalized feedback on communication skills, and performance tracking. The AI evaluates responses for clarity, confidence, and technical accuracy, providing detailed insights to help users improve their interview performance across various job roles and industries.",
     liveLink: "https://mock-interview-ai-chi.vercel.app/",
     githubLink: "https://github.com/elmars-hub/mock-interview-ai",
     techStack: [
@@ -108,69 +119,86 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "OpenAI API",
       "Shadcn",
+      "Web Speech API",
+      "Framer Motion",
     ],
+    category: "ai",
+    status: "completed",
     featured: true,
   },
   {
     name: "Note Keeper",
     description:
-      "A noteapp that keeps you updated with your notes and helps you manage your tasks.",
+      "A comprehensive note-taking and task management application designed for productivity and organization. Features include rich text editing, task categorization, priority levels, due date tracking, and search functionality. Users can create, edit, and organize notes with tags, set reminders, and track progress on various projects and personal tasks.",
     liveLink: "https://elmars-notekeeper.netlify.app/",
     githubLink: "https://github.com/elmars-hub/NoteKeeper",
-    techStack: ["JavaScript", "HTML", "CSS"],
+    techStack: ["JavaScript", "HTML5", "CSS3", "Local Storage API", "DOM Manipulation"],
+    category: "tool",
+    status: "completed",
     featured: true,
   },
   {
     name: "Couch Potatoe",
     description:
-      "A movie search app that allows you to search for movies and get information about them.",
+      "A comprehensive movie discovery and management platform that helps users explore, track, and organize their favorite films and TV shows. Features include advanced search and filtering, personalized recommendations, and detailed movie information including cast, crew, reviews, and trailers.",
     liveLink: "https://couch-potatoe-kysn.vercel.app/",
     githubLink: "https://github.com/elmars-hub/Couch-Potatoe",
     techStack: [
       "NextJs",
       "Supabase",
-      "TMDB",
+      "TMDB API",
       "Shadcn",
       "TypeScript",
       "Tailwind CSS",
+
     ],
+    category: "web",
+    status: "completed",
     featured: true,
   },
   {
     name: "Pizza Hut",
     description:
-      "A pizza app that helps you make orders and also track you order",
+      "A comprehensive pizza ordering and delivery management platform that streamlines the entire customer experience. Features include customizable pizza builder, real-time order tracking, payment processing, delivery scheduling. Users can browse menu items, track their orders from kitchen to doorstep, and manage their delivery preferences and order history.",
     liveLink: "https://pizza-hut-sigma.vercel.app",
     githubLink: "https://github.com/elmars-hub/Pizza-Hut",
-    techStack: ["React", "Javascript", "Tailwind"],
+    techStack: ["React", "JavaScript", "Tailwind CSS", "Context API", "Local Storage"],
+    category: "ecommerce",
+    status: "completed",
     featured: true,
   },
   {
     name: "Todo App",
     description:
-      "A simple todo app that allows you to manage your tasks and keep track of your progress.",
+      "A feature-rich task management application designed to boost productivity and organization. Features include task creation with priority levels, category organization. Users can filter tasks by status, search through their task list, and enjoy a clean, intuitive interface that makes task management both efficient and enjoyable.",
     liveLink: "https://todo-app-blond-two-64.vercel.app/",
     githubLink: "https://github.com/elmars-hub/TodoApp",
-    techStack: ["React", "JavaScript", "Tailwind CSS"],
+    techStack: ["React", "JavaScript", "Tailwind CSS", "Local Storage", "Context API"],
+    category: "tool",
+    status: "completed",
     featured: true,
   },
   {
     name: "OmniFood",
     description:
-      "A restaurant website that showcases the menu and allows users to place orders.",
+      "A modern, responsive restaurant website featuring an elegant design and comprehensive dining experience. The platform showcases an extensive menu with detailed descriptions, high-quality food photography, online reservation system, and seamless ordering functionality. Features include customer reviews, chef profiles, location information, and integration with delivery services for a complete restaurant digital presence.",
     liveLink: "https://omnifood-elmars.netlify.app/",
     githubLink: "https://github.com/elmars-hub/Restaurant",
-    techStack: ["HTML", "CSS", "JavaScript"],
+    techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "CSS Grid", "Flexbox"],
+    category: "ecommerce",
+    status: "completed",
     featured: true,
   },
 
   {
     name: "Conference Ticket",
     description:
-      "A platform for managing and selling tickets for conferences and events.",
+      "A comprehensive event management and ticketing platform designed for conferences, workshops, and professional gatherings. Features include event creation and management, secure ticket purchasing with multiple payment options, attendee registration, QR code generation for check-ins, and real-time event analytics.",
     liveLink: "https://conference-ticket-beta.vercel.app/",
     githubLink: "https://github.com/elmars-hub/hngx-stage2-conference-ticket",
-    techStack: ["React", "Cloudinary", "JavaScript", "Tailwind CSS"],
+    techStack: ["React", "Cloudinary", "JavaScript", "Tailwind CSS", "QR Code API", "Payment Integration"],
+    category: "web",
+    status: "completed",
     featured: true,
   },
 ];
