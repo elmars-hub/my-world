@@ -35,9 +35,9 @@ const NavItem = () => {
             className={clsx(
               "hidden md:inline-block transition ease py-[2px] px-[10px] focus:outline-none focus-jump hover:jump",
               {
-                "text-neutral-500 dark:text-neutral-400": !isActive, // Inactive links
-                "text-neutral-800 dark:text-white font-bold": isActive, // Active links
-                "hover:text-neutral-700 dark:hover:text-neutral-300": !isActive, // Correct hover color for light and dark themes
+                "text-neutral-500 dark:text-neutral-400": !isActive,
+                "text-neutral-800 dark:text-white font-bold": isActive,
+                "hover:text-neutral-700 dark:hover:text-neutral-300": !isActive,
               }
             )}
           >
