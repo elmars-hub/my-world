@@ -38,7 +38,7 @@ const Navbar = ({ isMobile }: NavbarProps) => {
           <LinkComponent
             href={link.path}
             key={index}
-            className={`text-2xl hover:text-primary transition-all group duration-300 transition`}
+            className={`text-2xl hover:text-primary transition-all group duration-300`}
           >
             {link.path === path && (
               <motion.span
