@@ -34,7 +34,7 @@ export const experienceEntries: ExperienceEntry[] = [
       "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
     startDate: "Feb 2025",
     endDate: "Present",
-    isActive: true,
+    isActive: false,
     companyUrl: "https://gradific.com",
   },
   {
