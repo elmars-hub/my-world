@@ -93,7 +93,7 @@ export const projects: Project[] = [
     name: "Couch Potato",
     description:
       "A comprehensive movie discovery and management platform that helps users explore, track, and organize their favorite films and TV shows. Features include advanced search and filtering, personalized recommendations, and detailed movie information including cast, crew, reviews, and trailers.",
-    liveLink: "couchpotato.vercel.app",
+    liveLink: "https://couchpotato.vercel.app",
     githubLink: "https://github.com/elmars-hub/couch-potato",
     techStack: [
       "NextJs",
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     name: "Github Says",
     description:
       "A playful web app that fetches GitHub user data, generates humorous “roasts,” and provides motivational messages based on your coding activity. Built with Next.js, TypeScript, Framer Motion, and Tailwind CSS.",
-    liveLink: "github-says.vercel.app",
+    liveLink: "https://github-says.vercel.app",
     githubLink: "https://github.com/elmars-hub/github-says",
     techStack: ["NextJs", "Tailwind", "Shadcn", "Framer Motion"],
     category: "tool",

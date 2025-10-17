@@ -29,7 +29,7 @@ export const experienceEntries: ExperienceEntry[] = [
     companyUrl: "https://hng.tech",
   },
   {
-    title: "Gradific | Feb. 2025 - Present",
+    title: "Gradific | Feb. 2025 - October 2025",
     description:
       "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
     startDate: "Feb 2025",
