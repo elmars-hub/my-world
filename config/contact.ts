@@ -3,7 +3,7 @@ export interface ContactConfig {
     email: string;
   };
   contact: {
-    rateLimit: number; // in minutes
+    rateLimit: number; 
     debug: boolean;
   };
 }

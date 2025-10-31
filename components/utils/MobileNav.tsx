@@ -16,10 +16,10 @@ const MobileNav = () => {
     <div className="md:hidden">
       <button
         onClick={() => setOpen(true)}
-        className="cursor-pointer"
+        className="cursor-pointer text-foreground"
         aria-label="Open navigation menu"
       >
-        <AlignJustify />
+        <AlignJustify className="w-6 h-6" />
       </button>
 
       <AnimatePresence>
@@ -30,7 +30,7 @@ const MobileNav = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 dark:bg-black/60 backdrop-blur-sm z-40 md:hidden"
               onClick={() => setOpen(false)}
             />
 
@@ -56,8 +56,8 @@ const MobileNav = () => {
               }}
               className="fixed left-0 right-0 top-[72px] z-50 md:hidden"
             >
-              <div className="mx-4 mt-2 rounded-2xl bg-gradient-to-br from-[#1a1a1a]/95 via-[#141414]/95 to-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 shadow-2xl overflow-hidden dark:bg-background/95 dark:border-border">
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent pointer-events-none" />
+              <div className="mx-4 mt-2 rounded-2xl bg-white/95 dark:bg-gradient-to-br dark:from-[#1a1a1a]/95 dark:via-[#141414]/95 dark:to-[#0a0a0a]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 shadow-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gray-100/30 dark:via-white/5 to-transparent pointer-events-none" />
 
                 <div className="relative px-4 py-6 space-y-6">
                   <motion.button
@@ -74,7 +74,7 @@ const MobileNav = () => {
                     className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 z-50"
                     aria-label="Close navigation menu"
                   >
-                    <X className="h-4 w-4 text-foreground dark:text-white" />
+                    <X className="h-4 w-4 text-foreground" />
                   </motion.button>
 
                   <motion.div
@@ -92,9 +92,9 @@ const MobileNav = () => {
                     <Link
                       href="/"
                       onClick={() => setOpen(false)}
-                      className="hover:text-foreground dark:hover:text-white"
+                      className="hover:text-foreground transition-colors"
                     >
-                      <strong className="text-foreground dark:text-white text-lg">
+                      <strong className="text-foreground text-lg">
                         {personalInfo.name}
                       </strong>
                     </Link>
@@ -134,8 +134,8 @@ const MobileNav = () => {
                             className={cn(
                               "flex items-center justify-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200",
                               pathname === link.path
-                                ? "bg-white/20 text-white shadow-lg shadow-white/20"
-                                : "text-gray-300 hover:bg-white/5 hover:text-white dark:text-foreground dark:hover:bg-accent"
+                                ? "bg-black text-white dark:bg-white/20 dark:text-white shadow-lg shadow-primary/20 dark:shadow-white/20"
+                                : "text-foreground/70 dark:text-gray-300 hover:bg-accent/50 dark:hover:bg-white/5 hover:text-foreground dark:hover:text-white"
                             )}
                           >
                             <motion.span
@@ -167,7 +167,7 @@ const MobileNav = () => {
                         duration: 0.4,
                       },
                     }}
-                    className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent origin-left dark:via-border"
+                    className="h-px bg-gradient-to-r from-transparent via-border to-transparent origin-left"
                   />
                 </div>
               </div>
