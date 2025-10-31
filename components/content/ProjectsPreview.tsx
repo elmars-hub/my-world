@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -21,16 +22,21 @@ import { Project } from "@/config/personal";
 
 interface ProjectPreviewCardProps {
   project: Project;
+  index?: number;
 }
 
-const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({ project }) => {
+const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({ project, index = 0 }) => {
   const techStack = useMemo(() => project.techStack.slice(0, 3), [project.techStack]);
   const remainingCount = useMemo(() => project.techStack.length - 3, [project.techStack.length]);
 
   return (
     <LazyLoad fallback={<div className="w-full max-w-sm h-64 bg-muted animate-pulse rounded-xl" />}>
-      <AnimationContainer>
-        <Card className="w-full max-w-sm transition-all duration-300 hover:shadow-lg hover:scale-105 group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+      <AnimationContainer customDelay={index * 0.15} animationType="scale">
+        <motion.div
+          whileHover={{ y: -8, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Card className="w-full max-w-sm transition-all duration-300 hover:shadow-xl group focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 border-border/50 hover:border-border">
           <CardHeader>
             <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors">
               {project.name}
@@ -93,6 +99,7 @@ const ProjectPreviewCard: React.FC<ProjectPreviewCardProps> = ({ project }) => {
             </Button>
           </CardFooter>
         </Card>
+        </motion.div>
       </AnimationContainer>
     </LazyLoad>
   );
@@ -114,18 +121,29 @@ const ProjectsPreview: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {featuredProjects.map((project, index) => (
-            <ProjectPreviewCard key={index} project={project} />
+            <ProjectPreviewCard key={index} project={project} index={index} />
           ))}
         </div>
 
-        <div className="flex justify-center">
-          <Button asChild size="lg" className="group">
-            <Link href="/projects">
-              View All Projects
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-        </div>
+        <motion.div 
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button asChild size="lg" className="group">
+              <Link href="/projects">
+                View All Projects
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </AnimationContainer>
   );

@@ -51,17 +51,17 @@ const Skills = () => {
   }), []);
 
   const skillsData = useMemo(() => [
-    { icon: FileCode, name: "HTML" },
-    { icon: FileCode, name: "CSS" },
     { icon: FileCode2, name: "JavaScript" },
     { icon: FileCode2, name: "TypeScript" },
+    { icon: Wind, name: "TailwindCss" },
     { icon: Atom, name: "ReactJs" },
     { icon: Hexagon, name: "Next.Js" },
-    { icon: Bolt, name: "Supabase" },
-    { icon: Database, name: "Sanity" },
+    { icon: Bolt, name: "Express" },
+    { icon: Database, name: "MongoDB" },
+    { icon: FileCode2, name: "Prisma" },
     { icon: Github, name: "Git" },
+    { icon: Bolt, name: "Supabase" },
     { icon: Frame, name: "Framer Motion" },
-    { icon: Wind, name: "TailwindCss" },
     { icon: Command, name: "Redux" },
   ], []);
 
