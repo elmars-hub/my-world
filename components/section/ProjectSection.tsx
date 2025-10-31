@@ -40,6 +40,7 @@ const ProjectSection = () => {
                 tags={project.techStack}
                 githubUrl={project.githubLink}
                 liveUrl={project.liveLink}
+                index={index}
               />
             </div>
           ))}
