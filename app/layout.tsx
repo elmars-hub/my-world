@@ -9,9 +9,8 @@ import ProgressBar from "@/components/ui/ProgressBar";
 import SkipLinks from "@/components/SkipLinks";
 import { personalInfo } from "@/config/personal";
 import { Toaster } from "sonner";
-import Head from "next/head";
 
-const outfit = Outfit({ 
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   preload: true,
@@ -84,7 +83,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Martin Elmars | Developer Extraordinaire",
-    description: "Passionate Frontend Developer crafting modern web experiences with React, Next.js, TypeScript, and Tailwind CSS.",
+    description:
+      "Passionate Frontend Developer crafting modern web experiences with React, Next.js, TypeScript, and Tailwind CSS.",
     creator: "@elmarshub",
     images: ["/opengraph-image.webp"],
   },
@@ -114,19 +114,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="hpoqyUGK3eGTIaj7vksntBZe-vxTAhI073Bvl6DAWPg"
-        />
-      </Head>
       <body className={outfit.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <SkipLinks />
           <ProgressBar />
           <Header />
 
-          <main id="main-content" className="flex flex-col justify-center items-center mx-auto" role="main">
+          <main
+            id="main-content"
+            className="flex flex-col justify-center items-center mx-auto"
+            role="main"
+          >
             {children}
           </main>
 

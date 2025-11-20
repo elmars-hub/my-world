@@ -7,7 +7,6 @@ import CurrentTimeLineExp from "../content/CurrentEx";
 import SkillSection from "../section/SkillSection";
 import ProjectsPreview from "../content/ProjectsPreview";
 import ContactMe from "../content/Contact";
-import FAQ from "../content/FAQ";
 
 const HomeSection = () => {
   return (
@@ -41,10 +40,6 @@ const HomeSection = () => {
       <AnimationContainer customClassName="w-full mt-5 md:mt-10">
         <ContactMe />
       </AnimationContainer>
-
-      {/* <AnimationContainer customClassName="w-full mt-5 md:mt-10">
-        <FAQ />
-      </AnimationContainer> */}
     </SectionContainer>
   );
 };

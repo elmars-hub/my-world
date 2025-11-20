@@ -72,7 +72,6 @@ const Footer = () => {
             <MediumIcon />
             Medium
           </ExternalLink>
-         
         </div>
 
         <div className="flex flex-col space-y-4">
@@ -83,10 +82,7 @@ const Footer = () => {
             <Briefcase className="w-5 h-5" />
             Projects
           </Link>
-          <ExternalLink
-            href={personalInfo.socials.twitter}
-            // className="flex items-center gap-2  hover:text-gray-600 transition ease"
-          >
+          <ExternalLink href={personalInfo.socials.twitter}>
             <Twitter className="w-5 h-5" />
             Twitter
           </ExternalLink>

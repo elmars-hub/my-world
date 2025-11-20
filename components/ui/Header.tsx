@@ -11,7 +11,12 @@ import { personalInfo } from "@/config/personal";
 const Header = () => {
   return (
     <HeaderAnimation>
-      <nav id="navigation" className="w-10/12 lg:max-w-screen-md flex items-center justify-between flex-row relative py-8 sm:pb-8 bg-primary text-foreground dark:text-white gap-5 lg:gap-0" role="navigation" aria-label="Main navigation">
+      <nav
+        id="navigation"
+        className="w-10/12 lg:max-w-screen-md flex items-center justify-between flex-row relative py-8 sm:pb-8 bg-primary text-foreground dark:text-white gap-5 lg:gap-0"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="">
           <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">
             <Link
@@ -25,7 +30,6 @@ const Header = () => {
           </h1>
         </div>
 
-        {/*  */}
         <div className="ml-[-0.80rem] flex items-center gap-4">
           <NavItem />
           <ThemeToggle />
