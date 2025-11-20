@@ -8,11 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import AnimationContainer from "../utils/AnimationContainer";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { getTechIcon } from "@/config/tech-icons";
 
 interface ProjectCardProps {
   title: string;
@@ -20,6 +21,7 @@ interface ProjectCardProps {
   tags: string[];
   githubUrl: string;
   liveUrl: string;
+  image?: string;
   index?: number;
 }
 
@@ -29,76 +31,102 @@ export function ProjectCard({
   tags,
   githubUrl,
   liveUrl,
+  image,
   index = 0,
 }: ProjectCardProps) {
   return (
     <AnimationContainer customDelay={index * 0.1} animationType="scale">
       <motion.div
-        whileHover={{ y: -8, scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        whileHover={{ y: -8 }}
+        transition={{ type: "spring", stiffness: 200, damping: 25 }}
+        className="group h-full relative"
       >
-        <Card className="w-full max-w-xl min-h-64 flex flex-col transition-all duration-300 hover:shadow-xl border-border/50 hover:border-border">
-          <CardHeader className="flex-shrink-0">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.2 }}
-            >
-              <CardTitle className="text-xl font-bold">{title}</CardTitle>
-              <CardDescription className="line-clamp-3">{description}</CardDescription>
-            </motion.div>
+        <div className="absolute -inset-px rounded-xl bg-gradient-to-br from-primary/50 to-secondary/50 opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-50" />
+
+        <Card className="relative h-full w-full max-w-xl flex flex-col overflow-hidden border-border/50 bg-card/90 backdrop-blur-sm transition-all duration-300 hover:border-primary/30">
+          {image && (
+            <div className="relative w-full h-52 overflow-hidden">
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="relative w-full h-full"
+              >
+                <Image
+                  src={image}
+                  alt={`${title} project screenshot`}
+                  fill
+                  className="object-cover transition-transform object-top duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-60" />
+              </motion.div>
+            </div>
+          )}
+
+          <CardHeader className="pb-2">
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors duration-300">
+                {title}
+              </CardTitle>
+            </div>
+            <CardDescription className="line-clamp-3 mt-2 text-muted-foreground/90">
+              {description}
+            </CardDescription>
           </CardHeader>
-          <CardContent className="flex-1 flex flex-col justify-between">
-            <motion.div 
-              className="flex flex-wrap gap-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.3 }}
-            >
-              {tags.map((tag, tagIndex) => (
-                <motion.div
-                  key={tagIndex}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.3 + tagIndex * 0.05 }}
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Badge
-                    variant="secondary"
-                    className="uppercase text-xs font-medium text-foreground cursor-default"
+
+          <CardContent className="flex-1 py-4">
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, tagIndex) => {
+                const techIcon = getTechIcon(tag);
+                const IconComponent = techIcon?.icon;
+
+                return (
+                  <div
+                    key={tagIndex}
+                    className="flex items-center gap-1.5 rounded-md bg-secondary/40 px-2.5 py-1 text-xs font-medium text-secondary-foreground transition-all duration-300 hover:bg-secondary hover:scale-105 cursor-default ring-1 ring-transparent hover:ring-border"
+                    title={techIcon?.name || tag}
                   >
-                    {tag}
-                  </Badge>
-                </motion.div>
-              ))}
-            </motion.div>
+                    {IconComponent && (
+                      <span
+                        className="flex items-center"
+                        style={{ color: techIcon?.color }}
+                      >
+                        <IconComponent className="h-3.5 w-3.5" />
+                      </span>
+                    )}
+                    <span className="capitalize">{tag}</span>
+                  </div>
+                );
+              })}
+            </div>
           </CardContent>
-          <CardFooter className="flex gap-2 flex-shrink-0">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button variant="outline" size="sm" asChild>
+
+          <CardFooter className="flex gap-3 pt-2 pb-6 mt-auto">
+            {githubUrl && (
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className="flex-1 gap-2 border-primary/20 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              >
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
-                  GitHub
+                  <Github className="h-4 w-4 group-hover:text-primary transition-colors" />
+                  <span>Code</span>
                 </a>
               </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            )}
+            <Button
+              size="sm"
+              asChild
+              className="flex-1 gap-2 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300"
             >
-              <Button variant="outline" size="sm" asChild>
-                <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Live Demo
-                </a>
-              </Button>
-            </motion.div>
+              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4" />
+                <span>Live Demo</span>
+              </a>
+            </Button>
           </CardFooter>
         </Card>
       </motion.div>

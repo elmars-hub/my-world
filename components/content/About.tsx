@@ -20,10 +20,14 @@ const About = () => {
   };
 
   return (
-    <AnimationContainer customClassName="w-full mb-16" animationType="fade" customDelay={0.2}>
+    <AnimationContainer
+      customClassName="w-full mb-16"
+      animationType="fade"
+      customDelay={0.2}
+    >
       <SectionHeader id="aboutme" title="About Me" content="" />
 
-      <motion.p 
+      <motion.p
         className="text-base sm:text-base md:text-lg text-foreground dark:text-white text-justify"
         custom={0}
         initial="hidden"
@@ -44,7 +48,7 @@ const About = () => {
         let&apos;s connect and build something great together!
       </motion.p>
 
-      <motion.p 
+      <motion.p
         className="text-base sm:text-base md:text-lg text-foreground dark:text-white mt-2 text-justify"
         custom={1}
         initial="hidden"

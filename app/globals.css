@@ -173,25 +173,23 @@ body {
   will-change: width;
 }
 
-
 .gpu-accelerated {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   .typing-animation {
     animation: none;
     border-right: none;
   }
-  
+
   .focus-jump:focus,
   .focus-jump:hover {
     animation: none;
   }
-  
+
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

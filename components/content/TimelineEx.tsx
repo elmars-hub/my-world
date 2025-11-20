@@ -6,7 +6,6 @@ import { TimelineEventProps } from "@/types/route";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-// Main Timeline container component
 export const Timeline = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -44,7 +43,6 @@ export const Timeline = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// TimelineEvent component that handles the individual event's layout and appearance
 export const TimelineEvent = ({
   active,
   children,
@@ -113,7 +111,7 @@ export const TimelineEvent = ({
 };
 
 const TimelineEventTitle = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-base text-black dark:text-white">{children}</p> // Dark theme: white text
+  <p className="text-base text-black dark:text-white">{children}</p>
 );
 
 const TimelineEventDescription = ({

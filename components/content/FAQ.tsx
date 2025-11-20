@@ -67,7 +67,7 @@ const FAQ = () => {
                     href={`mailto:${personalInfo.socials.email}`}
                     className="text-blue-500 hover:underline"
                   >
-                    martinsifeanyi234@gmail.com
+                    martinsifeanyi247@gmail.com
                   </a>
                 </li>
                 <li>

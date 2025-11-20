@@ -9,11 +9,11 @@ export const navItemsSelected: { [key: string]: NavItemHeaderAnimation } = {
   "/": {
     name: "home",
   },
-  "/about": {
-    name: "about",
-  },
   "/projects": {
     name: "projects",
+  },
+  "/about": {
+    name: "about",
   },
   "/contact": {
     name: "contact",

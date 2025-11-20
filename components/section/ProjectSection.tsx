@@ -7,8 +7,6 @@ import { ProjectCard } from "../content/ProjectCard";
 import { personalInfo, projects } from "@/config/personal";
 
 const ProjectSection = () => {
-
-
   return (
     <SectionContainer>
       <div className="w-full flex flex-col gap-6">
@@ -40,6 +38,7 @@ const ProjectSection = () => {
                 tags={project.techStack}
                 githubUrl={project.githubLink}
                 liveUrl={project.liveLink}
+                image={project.image}
                 index={index}
               />
             </div>
