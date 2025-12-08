@@ -35,15 +35,15 @@ export const experienceEntries: ExperienceEntry[] = [
     isActive: true,
     companyUrl: "https://hng.tech",
   },
-  // {
-  //   title: "Gradific | Feb. 2025 - May. 2025",
-  //   description:
-  //     "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
-  //   startDate: "Feb 2025",
-  //   endDate: "Oct 2025",
-  //   isActive: false,
-  //   companyUrl: "https://gradific.com",
-  // },
+  {
+    title: "Gradific | Feb. 2025 - May. 2025",
+    description:
+      "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
+    startDate: "Feb 2025",
+    endDate: "Oct 2025",
+    isActive: false,
+    companyUrl: "https://gradific.com",
+  },
   // {
   //   title: "ShopDesk | Feb. 2025 - April 2025",
   //   description:
