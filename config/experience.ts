@@ -18,6 +18,15 @@ export const experienceEntries: ExperienceEntry[] = [
     companyUrl: "https://github.com/elmars-hub",
   },
   {
+    title: "Anli Solutions | December. 2025 - Present",
+    description:
+      "Anli Solutions is focused on rendering hospitality management across africa. A robust and scalable hotel and property management system (PMS) designed for the africa hospitality industry.",
+    startDate: "December 2025",
+    endDate: "Present",
+    isActive: true,
+    companyUrl: "https://www.weareanli.com/",
+  },
+  {
     title: "HNG Tech | April. 2025 - Present",
     description:
       "HNG is a company with a mission — we work with the very best techies to help them enhance their skills through our HNG internship program and build their network. We also work with clients to find them the best technical talent across the globe.",
@@ -26,24 +35,24 @@ export const experienceEntries: ExperienceEntry[] = [
     isActive: true,
     companyUrl: "https://hng.tech",
   },
-  {
-    title: "Gradific | Feb. 2025 - May. 2025",
-    description:
-      "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
-    startDate: "Feb 2025",
-    endDate: "Oct 2025",
-    isActive: false,
-    companyUrl: "https://gradific.com",
-  },
-  {
-    title: "ShopDesk | Feb. 2025 - April 2025",
-    description:
-      "ShopDesk is a cloud based inventory management software that helps you track stock, process sales, and generate business records so you can focus on growing your business.",
-    startDate: "Feb 2025",
-    endDate: "April 2025",
-    isActive: false,
-    companyUrl: "https://shopdesk.im",
-  },
+  // {
+  //   title: "Gradific | Feb. 2025 - May. 2025",
+  //   description:
+  //     "Building a platform that is designed to help academic institutes, bootcamps, and training organizations streamline their workflow, making it easy to create, track, and grade assignments—all in one place.",
+  //   startDate: "Feb 2025",
+  //   endDate: "Oct 2025",
+  //   isActive: false,
+  //   companyUrl: "https://gradific.com",
+  // },
+  // {
+  //   title: "ShopDesk | Feb. 2025 - April 2025",
+  //   description:
+  //     "ShopDesk is a cloud based inventory management software that helps you track stock, process sales, and generate business records so you can focus on growing your business.",
+  //   startDate: "Feb 2025",
+  //   endDate: "April 2025",
+  //   isActive: false,
+  //   companyUrl: "https://shopdesk.im",
+  // },
   {
     title: "Servida | Aug. 2024 - Jan. 2025",
     description:
