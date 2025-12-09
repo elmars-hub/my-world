@@ -61,7 +61,7 @@ export const techStackIcons: Record<string, TechIcon> = {
 
   // Styling
   "Tailwind CSS": {
-    name: "Tailwind CSS",
+    name: "Tailwind",
     icon: SiTailwindcss,
     color: "#06B6D4",
   },
@@ -139,7 +139,7 @@ export const techStackIcons: Record<string, TechIcon> = {
     color: "#000000",
   },
   "Framer Motion": {
-    name: "Framer Motion",
+    name: "Framer",
     icon: SiFramer,
     color: "#0055FF",
   },
