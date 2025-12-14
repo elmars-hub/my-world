@@ -27,6 +27,15 @@ export const experienceEntries: ExperienceEntry[] = [
     companyUrl: "https://www.weareanli.com/",
   },
   {
+    title: "Finteract | Nov. 2025 - Present",
+    description:
+      "A fintech platform that provides users with access to a range of financial services, including loans, savings, and investment products.",
+    startDate: "Nov 2025",
+    endDate: "Present",
+    isActive: true,
+    companyUrl: "",
+  },
+  {
     title: "HNG Tech | Jan. 2025 - Present",
     description:
       "HNG is a company with a mission — we work with the very best techies to help them enhance their skills through our HNG internship program and build their network. We also work with clients to find them the best technical talent across the globe.",
