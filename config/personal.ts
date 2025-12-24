@@ -98,7 +98,7 @@ export const projects: Project[] = [
       "A comprehensive movie discovery and management platform that helps users explore, track, and organize their favorite films and TV shows. Features include advanced search and filtering, personalized recommendations, and detailed movie information including cast, crew, reviews, and trailers.",
     liveLink: "https://couchpotato.vercel.app",
     githubLink: "https://github.com/elmars-hub/couch-potato",
-    image: "/couchpotato.jpeg",
+    image: "/couchpotato.png",
     techStack: [
       "NextJs",
       "Supabase",
