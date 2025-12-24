@@ -112,6 +112,18 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    name: "FrontEnd Perspective",
+    description:
+      "A modern, production-ready blog built with React, TypeScript, and Supabase to help frontend developers level up their skills.",
+    liveLink: "https://frontend-perspective.vercel.app/",
+    githubLink: "",
+    image: "/perspective.png",
+    techStack: ["React", "Supabase", "TypeScript"],
+    category: "web",
+    status: "completed",
+    featured: true,
+  },
+  {
     name: "Gradific",
     description:
       "An innovative educational platform that bridges the gap between students and qualified tutors through advanced matching algorithms. Features include real-time video lessons, interactive whiteboards, progress tracking, assignment management, and secure payment processing. The platform supports multiple subjects and learning styles with comprehensive tutor profiles and student feedback systems.",
